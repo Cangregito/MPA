@@ -1,9 +1,8 @@
 <ion-header>
   <ion-toolbar class="custom-header">
     <ion-buttons slot="start">
-
     </ion-buttons>
-    <ion-title>Bienvenido</ion-title>
+    <ion-title>Registro</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,30 +13,39 @@
     <form>
         <div class="wrapform">
          <ion-item>
+            <ion-input type="text" name="name" placeholder="Nombre Completo">
+           <ion-icon name="person-outline"></ion-icon>
+           </ion-input>
+           </ion-item>
+
+         <ion-item>
             <ion-input type="text" name="email" placeholder="Email">
            <ion-icon name="mail-outline"></ion-icon>
            </ion-input>
            </ion-item>
 
            <ion-item>
-             <ion-input type="password" name="password" placeholder="**************">
+             <ion-input type="password" name="password" placeholder="Contraseña">
              <ion-icon name="lock-closed"></ion-icon>
              </ion-input>
              </ion-item>
 
+            <ion-item>
+             <ion-input type="password" name="confirm_password" placeholder="Confirmar Contraseña">
+             <ion-icon name="lock-closed"></ion-icon>
+             </ion-input>
+             </ion-item>
         </div>
-         <div class="password_forgot">
-            <ion-button fill="clear" class="ion-no-padding">Olvidaste tu contraseña?</ion-button>
-         </div>
+
          <div class="sign-btn-wrap">
-            <ion-button shape="round" type="submit" fill="solid" class="sign-btn">Iniciar sesion</ion-button>
-           </div>
+            <ion-button shape="round" type="submit" fill="solid" class="sign-btn">Registrarse</ion-button>
+         </div>
 
-           <div class="text-tag">
+         <div class="text-tag">
            <span>Por redes sociales</span>
-           </div>
+         </div>
 
-           <div class="social-btns">
+         <div class="social-btns">
                <ion-button fill="clear" class="facebookbtn ion-no-padding">
              <ion-img src="assets/icon/facebook.png"></ion-img>
                </ion-button>
@@ -47,13 +55,12 @@
                <ion-button fill="clear" class="applebtn ion-no-padding">
              <ion-img src="assets/icon/apple.png"></ion-img>
                </ion-button>
-             </div>
-
+         </div>
       </form>
       </ion-card-content>
     </ion-card>
 
     <div class="ion-card-footer">
-      <span>No tienes cuenta?</span><ion-button fill="clear" routerLink="/registro" class="ion-no-padding">Regístrate</ion-button>
-     </div>
+     <span>Ya tienes cuenta?</span><ion-button fill="clear" routerLink="/home" class="ion-no-padding">Inicia sesión</ion-button>
+    </div>
 </ion-content>
