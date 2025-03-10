@@ -1,20 +1,58 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+<ion-header>
+  <ion-toolbar class="custom-header">
+    <ion-buttons slot="start">
+    </ion-buttons>
+    <ion-title>Bienvenido</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+    <ion-card class="ion-no-margin">
+      <ion-card-content>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <form>
+        <div class="wrapform">
+         <ion-item>
+            <ion-input type="text" name="email" placeholder="Email">
+           <ion-icon name="mail-outline"></ion-icon>
+           </ion-input>
+           </ion-item>
+
+           <ion-item>
+             <ion-input type="password" name="password" placeholder="**************">
+             <ion-icon name="lock-closed"></ion-icon>
+             </ion-input>
+             </ion-item>
+
+        </div>
+         <div class="password_forgot">
+            <ion-button fill="clear" class="ion-no-padding">Olvidaste tu contraseña?</ion-button>
+         </div>
+         <div class="sign-btn-wrap">
+            <ion-button shape="round" type="submit" fill="solid" class="sign-btn">Iniciar sesion</ion-button>
+           </div>
+
+           <div class="text-tag">
+           <span>Por redes sociales</span>
+           </div>
+
+           <div class="social-btns">
+               <ion-button fill="clear" class="facebookbtn ion-no-padding">
+             <ion-img src="assets/icon/facebook.png"></ion-img>
+               </ion-button>
+               <ion-button fill="clear" class="googlebtn ion-no-padding">
+             <ion-img src="assets/icon/google.png"></ion-img>
+               </ion-button>
+               <ion-button fill="clear" class="applebtn ion-no-padding">
+             <ion-img src="assets/icon/apple.png"></ion-img>
+               </ion-button>
+             </div>
+
+      </form>
+      </ion-card-content>
+    </ion-card>
+
+    <div class="ion-card-footer">
+     <span>No tienes cuenta?</span><button class="ion-no-padding">Registrate</button>
+      </div>
 </ion-content>
