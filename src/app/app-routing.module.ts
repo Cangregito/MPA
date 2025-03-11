@@ -19,6 +19,18 @@ const routes: Routes = [
     path: 'inicio',
     loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
   },
+  {
+    path: 'perfil',
+    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
+  },
+  {
+    path: 'estados',
+    loadChildren: () => import('./estados/estados.module').then( m => m.EstadosPageModule)
+  },
+  {
+    path: 'parametros',
+    loadChildren: () => import('./parametros/parametros.module').then( m => m.ParametrosPageModule)
+  },
 ];
 
 @NgModule({
