@@ -1,0 +1,51 @@
+ion-content {
+  --ion-background-color: #E1EAF9 !important;
+  --ion-item-background: transparent !important;
+}
+
+.sensor-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto; /* Centrado horizontal manteniendo capacidad de scroll */
+  padding: 20px 0; /* Espacio vertical */
+}
+    .sensor-content {
+    background-color: #ffffff;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .sensor-card {
+    background: #2196f3; // Azul amigable
+    color: white;
+    border-left: 8px solid #0d47a1; // Contraste con azul oscuro
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+    }
+  }
+  
+  .sensor-value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+  }
+  
+  .sensor-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  

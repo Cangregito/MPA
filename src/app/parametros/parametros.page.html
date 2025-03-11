@@ -11,27 +11,62 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-tabs>
-    <ion-router-outlet></ion-router-outlet>
-    <ion-tab-bar slot="bottom" class="tab-bar">
-      <ion-tab-button tab="home" href="/inicio">
-        <ion-icon name="home"></ion-icon>
-        <ion-label>Inicio</ion-label>
-      </ion-tab-button>
-      <ion-tab-button tab="cart" href="/parametros">
-        <ion-icon name="stats-chart-outline"></ion-icon>
-        <ion-label>Parametros</ion-label>
-      </ion-tab-button>
-      <ion-tab-button tab="profile" href="/estados">
-        <ion-icon name="hardware-chip-outline"></ion-icon>
-        <ion-label>Estados</ion-label>
-      </ion-tab-button>
-      <ion-tab-button tab="profile" href="/perfil">
-        <ion-icon name="person"></ion-icon>
-        <ion-label>Perfil</ion-label>
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs> 
+  <div class="sensor-cards">
+    <ion-card class="sensor-card">
+      <ion-card-header>
+        <ion-card-title>Temperatura</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p class="sensor-value">25°C</p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="sensor-card">
+      <ion-card-header>
+        <ion-card-title>Humedad</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p class="sensor-value">60%</p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="sensor-card">
+      <ion-card-header>
+        <ion-card-title>Presión</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p class="sensor-value">1013 hPa</p>
+      </ion-card-content>
+    </ion-card>
+    <ion-card class="sensor-card">
+      <ion-card-header>
+        <ion-card-title>Temperatura</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p class="sensor-value">25°C</p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="sensor-card">
+      <ion-card-header>
+        <ion-card-title>Humedad</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p class="sensor-value">60%</p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="sensor-card">
+      <ion-card-header>
+        <ion-card-title>Presión</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p class="sensor-value">1013 hPa</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+
+</ion-content>
 
   
-</ion-content>
