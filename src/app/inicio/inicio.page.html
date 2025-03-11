@@ -1,14 +1,53 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>inicio</ion-title>
+    <ion-title>Inicio</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">inicio</ion-title>
+      <ion-title size="large">Inicio</ion-title>
     </ion-toolbar>
   </ion-header>
 
+  <ion-grid>
+    <ion-row>
+      <!-- Card 1: Control de Luces -->
+      <ion-col size="12" size-md="4">
+        <ion-card button>
+          <ion-card-header>
+            <div class="icon-container">
+              <ion-icon name="bulb" class="card-icon"></ion-icon>
+            </div>
+            <ion-card-title>Control de Luces</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+      <!-- Card 2: Control de Ascensor -->
+      <ion-col size="12" size-md="4">
+        <ion-card button>
+          <ion-card-header>
+            <div class="icon-container">
+              <ion-icon name="arrow-up-circle" class="card-icon"></ion-icon>
+            </div>
+            <ion-card-title>Control de Ascensor</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+      <!-- Card 3: Control de Puertas -->
+      <ion-col size="12" size-md="4">
+        <ion-card button>
+          <ion-card-header>
+            <div class="icon-container">
+              <ion-icon name="lock-closed" class="card-icon"></ion-icon>
+            </div>
+            <ion-card-title>Control de Puertas</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

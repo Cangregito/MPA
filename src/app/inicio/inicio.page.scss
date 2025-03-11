@@ -1,34 +1,51 @@
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(0, 123, 255, 0.7);
-    backdrop-filter: blur(10px);
-    padding: 15px;
-    display: flex;
-    justify-content: center;
-    transition: background 0.3s ease;
+ion-content {
+  --ion-background-color: white !important;
+}
+
+ion-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease-in-out;
+  text-align: center;
+  padding: 15px;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
   }
-  
-  .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    padding: 0;
-    margin: 0;
+}
+
+ion-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.icon-container {
+  background: #007bff;
+  border-radius: 50%;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.card-icon {
+  font-size: 32px;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  ion-card-header {
+    flex-direction: row;
+    justify-content: flex-start;
   }
-  
-  .nav-item {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: background 0.3s, transform 0.2s;
+
+  .icon-container {
+    margin-right: 15px;
+    margin-bottom: 0;
   }
-  
-  .nav-item:hover, .nav-item:focus {
-    background-color: rgba(255, 255, 255, 0.2);
-    transform: scale(1.05);
-  }
-  
+}
