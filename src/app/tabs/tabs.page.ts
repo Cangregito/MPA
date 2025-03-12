@@ -1,18 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router, NavigationEnd, RouterLink, RouterLinkActive } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'app-tabs',
   templateUrl: './tabs.page.html',
   styleUrls: ['./tabs.page.scss'],
-  standalone: true,
-  imports: [IonicModule]
+  imports: [IonicModule, RouterLink, RouterLinkActive]
 })
-export class TabsPage implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
+export class TabsPage {
+  constructor(private router: Router) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        document.body.className = ''; // Elimina cualquier clase previa
+        if (event.url.includes('/tabs/inicio')) {
+          document.body.classList.add('page-inicio');
+        } else if (event.url.includes('/tabs/parametros')) {
+          document.body.classList.add('page-parametros');
+        } else if (event.url.includes('/tabs/estados')) {
+          document.body.classList.add('page-estados');
+        } else if (event.url.includes('/tabs/perfil')) {
+          document.body.classList.add('page-perfil');
+        }
+      }
+    });
   }
-
 }

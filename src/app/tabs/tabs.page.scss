@@ -1,34 +1,30 @@
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: rgba(0, 123, 255, 0.7);
-    backdrop-filter: blur(10px);
-    padding: 15px;
-    display: flex;
-    justify-content: center;
-    transition: background-color 0.3s ease;
+.tab-bar {
+  --background: #0A2740; /* Azul oscuro */
+  --color: white; /* Texto en blanco */
+  --color-selected: white;
+
+  ion-tab-button {
+    --color: white;
+    --color-selected: white;
+    transition: all 0.3s ease-in-out; /* Transición suave */
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1); /* Efecto de fondo al pasar el cursor */
+      transform: scale(1.05); /* Hace un pequeño zoom */
+    }
+
+    /* ESTILO CUANDO EL TAB ESTÁ SELECCIONADO */
+    &.tab-selected {
+      background-color: rgba(255, 255, 255, 0.2); /* Fondo más oscuro */
+      font-weight: bold; /* Hace el texto más grueso */
+    }
   }
-  
-  .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    padding: 0;
-    margin: 0;
+
+  ion-icon, ion-label {
+    transition: color 0.3s ease-in-out; /* Suaviza el cambio de color */
+
+    ion-tab-button:hover & {
+      color: #ADD8E6; /* Azul claro en hover */
+    }
   }
-  
-  .nav-item {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s, transform 0.2s;
-  }
-  
-  .nav-item:hover, .nav-item:focus {
-    background-color: rgba(255, 255, 255, 0.2);
-    transform: scale(1.05);
-  }
-  
+}
