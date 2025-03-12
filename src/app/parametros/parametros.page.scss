@@ -1,51 +1,92 @@
+/* Fondo del ion-content */
 ion-content {
-  --ion-background-color: #E1EAF9 !important;
-  --ion-item-background: transparent !important;
+  --ion-background-color: #ffffff !important;
 }
-
+ion-card-title{
+  color: #0d47a1;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+/* Contenedor de las tarjetas - Flexbox con wrap */
 .sensor-cards {
   display: flex;
-  flex-direction: column;
-  gap: 15px;
-  max-width: 400px;
-  width: 100%;
-  text-align: center;
-  margin: 0 auto; /* Centrado horizontal manteniendo capacidad de scroll */
-  padding: 20px 0; /* Espacio vertical */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
 }
-    .sensor-content {
-    background-color: #ffffff;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+
+/* Estilos de las tarjetas */
+.sensor-card {
+  background: white; /* Fondo blanco */
+  color: #0d47a1; /* Azul oscuro */
+  border-left: 8px solid #2196f3; /* Borde azul brillante */
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  width: 500px; /* Tarjetas más grandes */
+  text-align: center;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.25);
   }
+}
+
+/* Iconos azules más grandes */
+.sensor-icon {
+  font-size: 3.5rem;
+  color: #2196f3;
+  margin-bottom: 10px;
+}
+
+/* Valores en grande */
+.sensor-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #0d47a1;
+  text-align: center;
+}
+
+/* Títulos de los parámetros */
+.sensor-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+ion-modal {
+  --background: white;  /* Establecer el fondo del modal a blanco */
+  --border-radius: 20px;
+  --width: 80%;
+  --height: auto;
+}
+
+/* 🔹 Responsividad */
+@media (max-width: 1024px) { /* Tablets */
   .sensor-card {
-    background: #2196f3; // Azul amigable
-    color: white;
-    border-left: 8px solid #0d47a1; // Contraste con azul oscuro
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  
-    &:hover {
-      transform: scale(1.05);
-      box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
-    }
+    width: 280px;
   }
-  
   .sensor-value {
     font-size: 1.8rem;
-    font-weight: bold;
-    color: #ffffff;
-    text-align: center;
   }
-  
-  .sensor-title {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 5px;
+}
+
+@media (max-width: 768px) { /* Teléfonos grandes */
+  .sensor-card {
+    width: 100%;
   }
-  
+  .sensor-value {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) { /* Teléfonos pequeños */
+  .sensor-card {
+    width: 100%;
+  }
+  .sensor-value {
+    font-size: 1.4rem;
+  }
+}
