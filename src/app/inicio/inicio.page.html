@@ -13,6 +13,92 @@
 
   <ion-grid>
     <ion-row>
+      <!-- Primer carrusel con consejos -->
+      <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
+        <ion-card class="featured-card">
+          <swiper-container 
+            loop="true" 
+            autoplay="{'delay': 1000, 'disableOnInteraction': false}" 
+            speed="1000" 
+            slides-per-view="1" 
+            space-between="10">
+            
+            <swiper-slide>
+              <div class="slide-content">
+                <ion-icon name="calendar-outline"></ion-icon>
+                <p>Organiza tu tiempo con un calendario para evitar estrés en los exámenes.</p>
+              </div>
+            </swiper-slide>
+  
+            <swiper-slide>
+              <div class="slide-content">
+                <ion-icon name="document-text-outline"></ion-icon>
+                <p>Toma notas de calidad, usa resaltadores y mapas conceptuales para estudiar mejor.</p>
+              </div>
+            </swiper-slide>
+  
+            <swiper-slide>
+              <div class="slide-content">
+                <ion-icon name="people-outline"></ion-icon>
+                <p>Crea grupos de estudio para compartir ideas y aclarar dudas con compañeros.</p>
+              </div>
+            </swiper-slide>
+  
+            <swiper-slide>
+              <div class="slide-content">
+                <ion-icon name="flag-outline"></ion-icon>
+                <p>Establece metas realistas y trabaja en pequeños pasos para alcanzarlas.</p>
+              </div>
+            </swiper-slide>
+  
+          </swiper-container>
+        </ion-card>
+      </ion-col>
+  
+      <!-- Segundo carrusel con más consejos -->
+      <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12">
+        <ion-card class="featured-card">
+          <swiper-container 
+            loop="true" 
+            autoplay="{'delay': 10000, 'disableOnInteraction': false}" 
+            speed="1000" 
+            slides-per-view="1" 
+            space-between="10">
+  
+            <swiper-slide>
+              <div class="slide-content">
+                <ion-icon name="bulb-outline"></ion-icon>
+                <p>Desarrolla el hábito de la lectura, te ayudará a mejorar tu comprensión y análisis.</p>
+              </div>
+            </swiper-slide>
+  
+            <swiper-slide>
+              <div class="slide-content">
+                <ion-icon name="alarm-outline"></ion-icon>
+                <p>Usa técnicas de estudio como la regla Pomodoro para aprovechar mejor tu tiempo.</p>
+              </div>
+            </swiper-slide>
+  
+            <swiper-slide>
+              <div class="slide-content">
+                <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+                <p>Mejora tus habilidades de comunicación, serán clave para tu futuro profesional.</p>
+              </div>
+            </swiper-slide>
+  
+            <swiper-slide>
+              <div class="slide-content">
+                <ion-icon name="wallet-outline"></ion-icon>
+                <p>Aprende a manejar tu dinero, haz un presupuesto y evita gastos innecesarios.</p>
+              </div>
+            </swiper-slide>
+  
+          </swiper-container>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  
+    <ion-row>
       <!-- Card 1: Control de Luces -->
       <ion-col size="12" size-md="4">
         <ion-card button>
