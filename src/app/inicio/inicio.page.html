@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true"> 
   <ion-toolbar class="custom-header">
     <ion-title>Inicio</ion-title>
   </ion-toolbar>
@@ -41,7 +41,6 @@
                 <p>Toma notas de calidad, usa resaltadores y mapas conceptuales para estudiar mejor.</p>
               </div>
             </swiper-slide>
-      
           </swiper-container>
         </ion-card>
       </ion-col>      
@@ -74,15 +73,14 @@
                 <p>Usa técnicas de estudio como la regla Pomodoro para aprovechar mejor tu tiempo.</p>
               </div>
             </swiper-slide>
-  
           </swiper-container>
         </ion-card>
       </ion-col>
     </ion-row>
 
     <!-- Cards adicionales -->
-    <ion-row>
-      <ion-col size="12" size-md="4">
+    <ion-row class="card-container">
+      <ion-col size="12" size-md="6" size-lg="4">
         <ion-card button>
           <ion-card-header>
             <div class="icon-container">
@@ -93,7 +91,7 @@
         </ion-card>
       </ion-col>
 
-      <ion-col size="12" size-md="4">
+      <ion-col size="12" size-md="6" size-lg="4">
         <ion-card button>
           <ion-card-header>
             <div class="icon-container">
@@ -104,7 +102,7 @@
         </ion-card>
       </ion-col>
 
-      <ion-col size="12" size-md="4">
+      <ion-col size="12" size-md="6" size-lg="4">
         <ion-card button>
           <ion-card-header>
             <div class="icon-container">
@@ -114,7 +112,39 @@
           </ion-card-header>
         </ion-card>
       </ion-col>
-    </ion-row>
 
+      <ion-col size="12" size-md="6" size-lg="4">
+        <ion-card button>
+          <ion-card-header>
+            <div class="icon-container">
+              <ion-icon name="wifi" class="card-icon"></ion-icon>
+            </div>
+            <ion-card-title>Conexiones de sensores</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="12" size-md="6" size-lg="4">
+        <ion-card button>
+          <ion-card-header>
+            <div class="icon-container">
+              <ion-icon name="construct" class="card-icon"></ion-icon>
+            </div>
+            <ion-card-title>Soporte Técnico</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="12" size-md="6" size-lg="4">
+        <ion-card button>
+          <ion-card-header>
+            <div class="icon-container">
+              <ion-icon name="help-circle" class="card-icon"></ion-icon>
+            </div>
+            <ion-card-title>Sobre Nosotros</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
   </ion-grid>
 </ion-content>

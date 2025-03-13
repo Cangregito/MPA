@@ -1,23 +1,19 @@
-// Estilos del encabezado
 .custom-header {
   --background: #0A2740;
   --color: white;
   text-align: center;
 }
 
-// Fondo del contenido
 ion-content {
   --ion-background-color: white !important;
 }
 
-// Swiper container
 swiper-container {
   width: 100%;
-  max-width: 600px; // Limita el ancho en pantallas grandes
+  max-width: 600px;
   height: auto;
   display: flex;
-  justify-content: center; // Centra el carrusel
-  margin: auto;
+  justify-content: center; 
 }
 
 // Slides
@@ -31,13 +27,11 @@ swiper-slide {
 // Tarjetas de Swiper
 .featured-card {
   width: 100%;
-  max-width: 600px; // Evita que se vea pegado en computadoras grandes
   height: 250px;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  margin: auto; // Centra el componente
 }
 
 // Contenido de los slides
@@ -53,7 +47,7 @@ swiper-slide {
   ion-icon {
     font-size: 3rem;
     color: #007bff;
-    margin-bottom: 10px;
+    -bottom: 10px;
   }
 
   p {
@@ -65,6 +59,18 @@ swiper-slide {
   }
 }
 
+.card-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 0;
+}
+ion-col{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  box-sizing: border-box;
+}
 // Cards
 ion-card {
   background-color: white;
@@ -72,11 +78,9 @@ ion-card {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   transition: transform 0.2s ease-in-out;
   text-align: center;
-  padding: 15px;
+  height: 100%;
   width: 100%;
-  max-width: 350px; // Controla el ancho en pantallas grandes
-  margin: auto; // Evita que se peguen a los lados
-
+  
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
@@ -97,7 +101,7 @@ ion-card-header {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 10px;
+  -bottom: 10px;
 }
 
 .card-icon {
@@ -115,7 +119,6 @@ ion-card-title {
     display: flex;
     justify-content: center;
     width: 95%;
-    margin: auto;
   }
 
   .slide-content {
@@ -130,18 +133,14 @@ ion-card-title {
 
   ion-card {
     width: 90%;
-    margin: auto;
   }
 }
 
 @media (max-width: 768px) {
-  .featured-card {
-    height: 400px;
-  }
+
 
   swiper-container {
     width: 90%;
-    margin: auto;
   }
 
   .slide-content {
@@ -158,14 +157,5 @@ ion-card-title {
 @media (min-width: 1024px) {
   swiper-container {
     max-width: 700px; // Ajusta el ancho en computadoras grandes
-    margin: auto;
-  }
-
-  .featured-card {
-    max-width: 700px;
-  }
-
-  ion-card {
-    max-width: 400px; // Hace que las tarjetas no se vean pegadas
   }
 }
