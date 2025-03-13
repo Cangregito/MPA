@@ -4,7 +4,14 @@
     align-items: center;
     margin-top: 20px;
   }
-  
+  ion-content {
+    --ion-background-color: #ffffff !important;
+  }
+  .custom-header {
+    --background: #0A2740; /* Azul oscuro */
+    --color: white;
+    text-align: center;
+  }
   .profile-picture {
     width: 120px;
     height: 120px;
@@ -18,6 +25,7 @@
   .profile-info {
     text-align: center;
     margin-top: 10px;
+    color: #000000;
   }
   
   .profile-info h2 {
@@ -25,6 +33,28 @@
   }
   
   .logout-btn {
-    margin: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    border-radius: 40px;
+    padding: 12px 20px;
+    font-size: 1.2em;
+    transition: all 0.3s ease-in-out;
+  }
+  .logout-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
+  }
+  
+  .profile-options {
+    background-color: #0A2740; /* Azul oscuro */
+
+    padding: 10px;
+  }
+  
+  .profile-options ion-item {
+    --background: transparent; /* Fondo transparente para los ítems */
+    --color: white; /* Texto en blanco */
   }
   

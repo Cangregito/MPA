@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar  class="custom-header" >
     <ion-title>Perfil de Usuario</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -19,7 +19,7 @@
     <p>🔹 Desarrollador de Software | Apasionado por la tecnología</p>
   </div>
 
-  <ion-list>
+  <ion-list  class="profile-options">
     <ion-item>
       <ion-icon slot="start" name="key-outline"></ion-icon>
       <ion-label>Seguridad</ion-label>
@@ -38,30 +38,9 @@
     </ion-item>
   </ion-list>
 
-  <ion-button expand="full" color="danger" class="logout-btn">
+  <ion-button expand="full" class="logout-btn">
     <ion-icon slot="start" name="log-out-outline"></ion-icon>
     Cerrar Sesión
   </ion-button>
 
-  <ion-tabs>
-    <ion-router-outlet></ion-router-outlet>
-    <ion-tab-bar slot="bottom" class="tab-bar">
-      <ion-tab-button tab="home" href="/inicio">
-        <ion-icon name="home"></ion-icon>
-        <ion-label>Inicio</ion-label>
-      </ion-tab-button>
-      <ion-tab-button tab="params" href="/parametros">
-        <ion-icon name="stats-chart-outline"></ion-icon>
-        <ion-label>Parámetros</ion-label>
-      </ion-tab-button>
-      <ion-tab-button tab="states" href="/estados">
-        <ion-icon name="hardware-chip-outline"></ion-icon>
-        <ion-label>Estados</ion-label>
-      </ion-tab-button>
-      <ion-tab-button tab="profile" href="/perfil">
-        <ion-icon name="person"></ion-icon>
-        <ion-label>Perfil</ion-label>
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
 </ion-content>

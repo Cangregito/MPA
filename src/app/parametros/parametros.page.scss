@@ -15,7 +15,11 @@ ion-card-title{
   gap: 20px;
   padding: 20px;
 }
-
+.custom-header {
+  --background: #0A2740; /* Azul oscuro */
+  --color: white;
+  text-align: center;
+}
 /* Estilos de las tarjetas */
 .sensor-card {
   background: white; /* Fondo blanco */

@@ -1,6 +1,6 @@
 /* Nuevo Header */
 .custom-header {
-  --background: linear-gradient(135deg, #1248A0, #215AB7);
+  --background: #0A2740; /* Azul oscuro */
   --color: white;
   text-align: center;
   font-weight: bold;
@@ -71,7 +71,7 @@ ion-item ion-input:hover {
   --background-hover: #647B9D;
   color: #F4F6FA;
   border-radius: 25px;
-  --background: #215AB7;
+  --background: #0A2740; /* Azul oscuro */
   background-color: #215AB7;
 }
 

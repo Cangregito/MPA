@@ -12,7 +12,7 @@ register();
   templateUrl: './inicio.page.html',
   styleUrls: ['./inicio.page.scss'],
   standalone: true,
-  imports: [IonicModule, RouterLink]
+  imports: [IonicModule]
 })
 export class InicioPage implements OnInit {
   swiperModules = [IonicSlides];
