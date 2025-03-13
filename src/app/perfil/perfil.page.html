@@ -1,8 +1,4 @@
-<ion-header [translucent]="true">
-  <ion-toolbar  class="custom-header" >
-    <ion-title>Perfil de Usuario</ion-title>
-  </ion-toolbar>
-</ion-header>
+
 
 <ion-content [fullscreen]="true">
   <div class="profile-header">
@@ -13,17 +9,29 @@
   </div>
 
   <div class="profile-info">
-    <h2>Juan Pérez</h2>
-    <p>📧 Correo.com</p>
-    <p>📍 Ciudad, País</p>
-    <p>🔹 Desarrollador de Software | Apasionado por la tecnología</p>
+    <h2 class="profile-name">Juan Pérez</h2>
+    
+    <div class="info-item">
+      <ion-icon name="mail-open-outline" class="info-icon"></ion-icon>
+      <p class="info-content">juan.perezcorreo.com</p>
+    </div>
+  
+    <div class="info-item">
+      <ion-icon name="location-outline" class="info-icon"></ion-icon>
+      <p class="info-content">Barcelona, España</p>
+    </div>
+  
+    <div class="info-item">
+      <ion-icon name="code-slash-outline" class="info-icon"></ion-icon>
+      <p class="info-content">Desarrollador Full Stack<br>
+      <small class="info-sub">Apasionado por la innovación tecnológica</small></p>
+    </div>
   </div>
 
   <ion-list  class="profile-options">
     <ion-item>
       <ion-icon slot="start" name="key-outline"></ion-icon>
       <ion-label>Seguridad</ion-label>
-      <ion-button fill="clear" slot="end">Configurar</ion-button>
     </ion-item>
 
     <ion-item>
