@@ -1,0 +1,92 @@
+.custom-header {
+    --background: #0d47a1;
+    --color: white;
+    text-align: center;
+}
+
+ion-content {
+    --ion-background-color: white !important;
+}
+
+ion-card-title {
+    color: #0d47a1;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.luces {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+}
+
+.luces-card {
+    background: white;
+    color: #0d47a1;
+    border: 2px solid #213df3;
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background 0.3s ease-in-out, color 0.3s ease-in-out;
+    width: 400px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.luces-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.25);
+    background: #0d47a1; /* Fondo azul al hacer hover */
+    color: white; /* Texto blanco al hacer hover */
+    border-color: white; /* Borde blanco al hacer hover */
+}
+
+.luces-card:hover .luces-icon {
+    color: white; /* Icono blanco al hacer hover */
+}
+
+.luces-card:hover ion-card-title {
+    color: white; /* Título blanco al hacer hover */
+}
+
+.ion-toggle {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    --color: #0d47a1;
+    --background-checked: white;
+    --handle-background-checked: #0d47a1;
+}
+
+.luces-icon {
+    font-size: 3.5rem;
+    color: #0d47a1;
+    margin: 15px;
+    display: block;
+}
+
+ /* 🔹 Responsividad */
+ @media (max-width: 1024px) { /* Tablets */
+    .luces-card {
+      width: 280px;
+    }
+
+  }
+  
+  @media (max-width: 768px) { /* Teléfonos grandes */
+    .luces-card {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) { /* Teléfonos pequeños */
+    .luces-card {
+      width: 100%;
+    }
+  } 
