@@ -81,7 +81,7 @@
     <!-- Cards adicionales -->
     <ion-row class="card-container">
       <ion-col size="12" size-md="6" size-lg="4">
-        <ion-card button>
+        <ion-card button [routerLink]="['/luces']">
           <ion-card-header>
             <div class="icon-container">
               <ion-icon name="bulb" class="card-icon"></ion-icon>
@@ -92,7 +92,7 @@
       </ion-col>
 
       <ion-col size="12" size-md="6" size-lg="4">
-        <ion-card button>
+        <ion-card button [routerLink]="['/elevador']">
           <ion-card-header>
             <div class="icon-container">
               <ion-icon name="arrow-up-circle" class="card-icon"></ion-icon>
@@ -103,7 +103,7 @@
       </ion-col>
 
       <ion-col size="12" size-md="6" size-lg="4">
-        <ion-card button>
+        <ion-card button [routerLink]="['/puertas']">
           <ion-card-header>
             <div class="icon-container">
               <ion-icon name="lock-closed" class="card-icon"></ion-icon>
@@ -114,18 +114,18 @@
       </ion-col>
 
       <ion-col size="12" size-md="6" size-lg="4">
-        <ion-card button>
+        <ion-card button [routerLink]="['/sensores']">
           <ion-card-header>
             <div class="icon-container">
               <ion-icon name="wifi" class="card-icon"></ion-icon>
             </div>
-            <ion-card-title>Conexiones de sensores</ion-card-title>
+            <ion-card-title>Conexión de sensores</ion-card-title>
           </ion-card-header>
         </ion-card>
       </ion-col>
 
       <ion-col size="12" size-md="6" size-lg="4">
-        <ion-card button>
+        <ion-card button [routerLink]="['/soporte']">
           <ion-card-header>
             <div class="icon-container">
               <ion-icon name="construct" class="card-icon"></ion-icon>
@@ -136,7 +136,7 @@
       </ion-col>
 
       <ion-col size="12" size-md="6" size-lg="4">
-        <ion-card button>
+        <ion-card button [routerLink]="['/nosotros']">
           <ion-card-header>
             <div class="icon-container">
               <ion-icon name="help-circle" class="card-icon"></ion-icon>

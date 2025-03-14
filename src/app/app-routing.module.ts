@@ -18,7 +18,31 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
+  },  {
+    path: 'luces',
+    loadChildren: () => import('./luces/luces.module').then( m => m.LucesPageModule)
+  },
+  {
+    path: 'elevador',
+    loadChildren: () => import('./elevador/elevador.module').then( m => m.ElevadorPageModule)
+  },
+  {
+    path: 'puertas',
+    loadChildren: () => import('./puertas/puertas.module').then( m => m.PuertasPageModule)
+  },
+  {
+    path: 'sensores',
+    loadChildren: () => import('./sensores/sensores.module').then( m => m.SensoresPageModule)
+  },
+  {
+    path: 'soporte',
+    loadChildren: () => import('./soporte/soporte.module').then( m => m.SoportePageModule)
+  },
+  {
+    path: 'nosotros',
+    loadChildren: () => import('./nosotros/nosotros.module').then( m => m.NosotrosPageModule)
   }
+
 ];
 
 @NgModule({
