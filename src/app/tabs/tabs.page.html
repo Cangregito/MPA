@@ -1,23 +1,101 @@
+<!-- Menú Lateral Derecho Mejorado -->
+<ion-menu side="end" class="custom-menu" content-id="main-content">
+  <ion-content class="menu-content">
+    <ion-list lines="none">
+      <!-- Sección Principal -->
+      <ion-item-divider class="menu-divider">Mi Cuenta</ion-item-divider>
+
+      <ion-item class="menu-item" button detail="false">
+        <ion-icon name="person" slot="start" class="menu-icon"></ion-icon>
+        <ion-label>Mi Perfil</ion-label>
+        <ion-ripple-effect></ion-ripple-effect>
+      </ion-item>
+
+      <ion-item class="menu-item" button>
+        <ion-icon name="notifications" slot="start" class="menu-icon"></ion-icon>
+        <ion-label>Notificaciones</ion-label>
+      </ion-item>
+
+      <!-- Configuración -->
+      <ion-item-divider class="menu-divider">Configuración</ion-item-divider>
+
+      <ion-item class="menu-item" button>
+        <ion-icon name="language" slot="start" class="menu-icon"></ion-icon>
+        <ion-label>Idioma</ion-label>
+        <ion-select interface="action-sheet" placeholder="Español">
+          <ion-select-option value="es">Español</ion-select-option>
+          <ion-select-option value="en">English</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <!-- Soporte -->
+      <ion-item-divider class="menu-divider">Soporte</ion-item-divider>
+
+      <ion-item class="menu-item" button>
+        <ion-icon name="help-circle" slot="start" class="menu-icon"></ion-icon>
+        <ion-label>Ayuda</ion-label>
+      </ion-item>
+
+      <ion-item class="menu-item" button>
+        <ion-icon name="information-circle" slot="start" class="menu-icon"></ion-icon>
+        <ion-label>Sobre la app</ion-label>
+      </ion-item>
+
+      <!-- Cerrar Sesión -->
+      <ion-item class="menu-item logout-item" button>
+        <ion-icon name="log-out" slot="start" class="menu-icon"></ion-icon>
+        <ion-label>Cerrar Sesión</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<!-- Contenido Principal -->
+<ion-router-outlet id="main-content"></ion-router-outlet>
+
+<!-- Header con Botones -->
+<ion-header [translucent]="true">
+  <ion-toolbar class="custom-header">
+    <!-- Botón de tema a la izquierda -->
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon slot="icon-only" name="contrast"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>{{ pageTitle }}</ion-title>
+
+    <!-- Botón del menú a la derecha -->
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 <ion-tabs>
   <ion-tab-bar slot="bottom" class="tab-bar">
-    <ion-tab-button tab="inicio" [routerLink]="['/tabs/inicio']" routerLinkActive="tab-selected">
+    <ion-tab-button tab="inicio" [routerLink]="['/tabs/inicio']" routerLinkActive="tab-selected"
+      (click)="setTitle('Inicio')">
       <ion-icon name="home-outline"></ion-icon>
       <ion-label>Inicio</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="parametros" [routerLink]="['/tabs/parametros']" routerLinkActive="tab-selected">
+    <ion-tab-button tab="parametros" [routerLink]="['/tabs/parametros']" routerLinkActive="tab-selected"
+      (click)="setTitle('Parámetros')">
       <ion-icon name="settings-outline"></ion-icon>
       <ion-label>Parámetros</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="estados" [routerLink]="['/tabs/estados']" routerLinkActive="tab-selected">
+    <ion-tab-button tab="estados" [routerLink]="['/tabs/estados']" routerLinkActive="tab-selected"
+      (click)="setTitle('Estados')">
       <ion-icon name="pulse-outline"></ion-icon>
       <ion-label>Estados</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="perfil" [routerLink]="['/tabs/perfil']" routerLinkActive="tab-selected">
+    <ion-tab-button tab="perfil" [routerLink]="['/tabs/perfil']" routerLinkActive="tab-selected"
+      (click)="setTitle('Perfil')">
       <ion-icon name="person-outline"></ion-icon>
       <ion-label>Perfil</ion-label>
     </ion-tab-button>
+
   </ion-tab-bar>
 </ion-tabs>

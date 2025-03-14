@@ -1,79 +1,24 @@
-<ion-app>
-  <!-- Menú Lateral Derecho Mejorado -->
-  <ion-menu side="end" class="custom-menu" content-id="main-content">
-    <ion-content class="menu-content">
-      <ion-list lines="none">
-        <!-- Sección Principal -->
-        <ion-item-divider class="menu-divider">Mi Cuenta</ion-item-divider>
-        
-        <ion-item class="menu-item" button detail="false">
-          <ion-icon name="person" slot="start" class="menu-icon"></ion-icon>
-          <ion-label>Mi Perfil</ion-label>
-          <ion-ripple-effect></ion-ripple-effect>
-        </ion-item>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Gráficos de Estados</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-        <ion-item class="menu-item" button>
-          <ion-icon name="notifications" slot="start" class="menu-icon"></ion-icon>
-          <ion-label>Notificaciones</ion-label>
-        </ion-item>
-
-        <!-- Configuración -->
-       <ion-item-divider class="menu-divider">Configuración</ion-item-divider>
-
-        <ion-item class="menu-item" button>
-          <ion-icon name="language" slot="start" class="menu-icon"></ion-icon>
-          <ion-label>Idioma</ion-label>
-          <ion-select interface="action-sheet" placeholder="Español">
-            <ion-select-option value="es">Español</ion-select-option>
-            <ion-select-option value="en">English</ion-select-option>
-          </ion-select>
-        </ion-item>
-
-        <!-- Soporte -->
-        <ion-item-divider class="menu-divider">Soporte</ion-item-divider>
-
-        <ion-item class="menu-item" button>
-          <ion-icon name="help-circle" slot="start" class="menu-icon"></ion-icon>
-          <ion-label>Ayuda</ion-label>
-        </ion-item>
-
-        <ion-item class="menu-item" button>
-          <ion-icon name="information-circle" slot="start" class="menu-icon"></ion-icon>
-          <ion-label>Sobre la app</ion-label>
-        </ion-item>
-
-        <!-- Cerrar Sesión -->
-        <ion-item class="menu-item logout-item" button>
-          <ion-icon name="log-out" slot="start" class="menu-icon"></ion-icon>
-          <ion-label>Cerrar Sesión</ion-label>
-        </ion-item>
-      </ion-list>
-    </ion-content>
-  </ion-menu>
-
-  <!-- Contenido Principal -->
-  <ion-router-outlet id="main-content"></ion-router-outlet>
-
-  <!-- Header con Botones -->
-  <ion-header [translucent]="true">
-    <ion-toolbar class="custom-header">
-      <!-- Botón de tema a la izquierda -->
-      <ion-buttons slot="start">
-        <ion-button>
-          <ion-icon slot="icon-only" name="contrast"></ion-icon>
-        </ion-button>
-      </ion-buttons>
-
-      <ion-title>Estados</ion-title>
-
-      <!-- Botón del menú a la derecha -->
-      <ion-buttons slot="end">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-    </ion-toolbar>
-  </ion-header>
-
-  <ion-content [fullscreen]="true">
-    <!-- ... (resto del contenido igual) ... -->
-  </ion-content>
-</ion-app>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="6" *ngFor="let chart of chartData; let i = index">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>{{ chart.name }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <div class="chart-container">
+              <canvas #chartCanvas></canvas>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

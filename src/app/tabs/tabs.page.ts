@@ -9,6 +9,12 @@ import { IonicModule } from '@ionic/angular';
   imports: [IonicModule, RouterLink, RouterLinkActive]
 })
 export class TabsPage {
+  pageTitle = 'MPA'; 
+
+  setTitle(title: string) {
+    this.pageTitle = title;
+  }
+
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
