@@ -3,13 +3,19 @@ ion-content {
 }
 .chart-container {
   background-color: white !important; // 🔹 Fondo blanco total
-  padding: 10px;
+  padding: 5px;
   border-radius: 10px;
 }
 ion-card-header{
   background-color: white !important;
+}
+ion-card-title{
   color: darkblue !important;
 }
 ion-card-content{
   background-color: white !important;
+}
+canvas{
+  height: 300px;
+  width: 100%;
 }
