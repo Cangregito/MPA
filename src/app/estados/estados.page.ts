@@ -94,9 +94,9 @@ export class EstadosPage implements AfterViewInit {
       chart.data.labels = [...this.labels];
 
       chart.data.datasets.forEach(dataset => {
-        dataset.data.push(this.getRandomValue(index)); // Nuevo valor aleatorio según el sensor
+        dataset.data.push(this.getRandomValue(index)); 
         if (dataset.data.length > 7) {
-          dataset.data.shift(); // Elimina el primero
+          dataset.data.shift();
         }
       });
 

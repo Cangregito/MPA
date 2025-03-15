@@ -1,73 +1,26 @@
 <ion-header [translucent]="true">
   <ion-toolbar class="custom-header">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
     <ion-title>Control de Luces</ion-title>
-    <ion-back-button slot="start">
-    </ion-back-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div class="luces">
-
-    <ion-card class="luces-card">
-      <ion-card-header>
-        <ion-card-title>I-001</ion-card-title>
-        <ion-icon name="bulb-outline" class="luces-icon"></ion-icon>
-      </ion-card-header>
-      <div class="ion-toggle">
-        <ion-toggle slot="end" checked></ion-toggle>
-      </div>  
-    </ion-card>
-
-    <ion-card class="luces-card">
-      <ion-card-header>
-        <ion-card-title>I-002</ion-card-title>
-        <ion-icon name="bulb-outline" class="luces-icon"></ion-icon>
-      </ion-card-header>
-      <div class="ion-toggle">
-        <ion-toggle slot="end" checked></ion-toggle>
-      </div>  
-    </ion-card>
-
-    <ion-card class="luces-card">
-      <ion-card-header>
-        <ion-card-title>I-003</ion-card-title>
-        <ion-icon name="bulb-outline" class="luces-icon"></ion-icon>
-      </ion-card-header>
-      <div class="ion-toggle">
-        <ion-toggle slot="end" checked></ion-toggle>
-      </div>  
-    </ion-card>
-
-    <ion-card class="luces-card">
-      <ion-card-header>
-        <ion-card-title>I-104</ion-card-title>
-        <ion-icon name="bulb-outline" class="luces-icon"></ion-icon>
-      </ion-card-header>
-      <div class="ion-toggle">
-        <ion-toggle slot="end" checked></ion-toggle>
-      </div>  
-    </ion-card>
-
-    <ion-card class="luces-card">
-      <ion-card-header>
-        <ion-card-title>I-101</ion-card-title>
-        <ion-icon name="bulb-outline" class="luces-icon"></ion-icon>
-      </ion-card-header>
-      <div class="ion-toggle">
-        <ion-toggle slot="end" checked></ion-toggle>
-      </div>  
-    </ion-card>
-
-    <ion-card class="luces-card">
-      <ion-card-header>
-        <ion-card-title>I-102</ion-card-title>
-        <ion-icon name="bulb-outline" class="luces-icon"></ion-icon>
-      </ion-card-header>
-      <div class="ion-toggle">
-        <ion-toggle slot="end" checked></ion-toggle>
-      </div>  
-    </ion-card>
-
-  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-sm="6" size-md="6" size-lg="4" size-xl="3" *ngFor="let salon of salones; let i = index">
+        <ion-card [ngClass]="{ 'luces-card-on': estadoLuces[i], 'luces-card-off': !estadoLuces[i] }">
+          <ion-card-header class="card-header">
+            <ion-card-title>{{ salon }}</ion-card-title>
+            <ion-icon name="bulb-outline" class="luces-icon"></ion-icon>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-toggle [(ngModel)]="estadoLuces[i]" (ionChange)="toggleLuz(i)"></ion-toggle>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
