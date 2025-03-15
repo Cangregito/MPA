@@ -1,13 +1,41 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>sensores</ion-title>
+  <ion-toolbar class="custom-header">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Estado de sensores</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">sensores</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-sm="6" size-md="6" size-lg="4" size-xl="3" *ngFor="let sensor of sensors">
+        <ion-card [ngClass]="{'disconnected': sensor.status === 'disconnected'}">
+          <ion-card-header>
+            <!-- Si el sensor está desconectado, se muestra el icono de advertencia -->
+            <ion-icon 
+              [name]="sensor.status === 'active' ? sensor.icon : 'warning'" 
+              class="sensor-icon"
+              [class.icon-warning]="sensor.status === 'disconnected'">
+            </ion-icon>
+
+            <ion-card-title           
+              [class.title-active]="sensor.status === 'active'"
+              [class.title-warning]="sensor.status === 'disconnected'">
+              {{ sensor.name }}
+            </ion-card-title>
+
+          </ion-card-header>
+
+          <ion-card-content>
+            <p *ngIf="sensor.status === 'active'" class="active-text">El sensor está funcionando correctamente.</p>
+            <p *ngIf="sensor.status === 'disconnected'" class="disconnected-text">
+              El sensor está desconectado o ha dejado de funcionar, verifique la conexión o reemplácelo.
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
