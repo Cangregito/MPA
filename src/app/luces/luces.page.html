@@ -11,14 +11,23 @@
   <ion-grid>
     <ion-row>
       <ion-col size="12" size-sm="6" size-md="6" size-lg="4" size-xl="3" *ngFor="let salon of salones; let i = index">
-        <ion-card [ngClass]="{ 'luces-card-on': estadoLuces[i], 'luces-card-off': !estadoLuces[i] }">
+        <ion-card 
+          [ngClass]="{ 'luces-card-on': estadoLuces[i], 'luces-card-off': !estadoLuces[i] }" 
+          (click)="openModal(salon)">
+          
           <ion-card-header class="card-header">
             <ion-card-title>{{ salon }}</ion-card-title>
             <ion-icon name="bulb-outline" class="luces-icon"></ion-icon>
           </ion-card-header>
+
           <ion-card-content>
-            <ion-toggle [(ngModel)]="estadoLuces[i]" (ionChange)="toggleLuz(i)"></ion-toggle>
+            <!-- Evita que el toggle active el modal -->
+            <ion-toggle [(ngModel)]="estadoLuces[i]" 
+                        (ionChange)="toggleLuz(i)" 
+                        (click)="$event.stopPropagation()">
+            </ion-toggle>
           </ion-card-content>
+
         </ion-card>
       </ion-col>
     </ion-row>
