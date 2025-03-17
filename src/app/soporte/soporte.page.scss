@@ -1,0 +1,100 @@
+/* Fondo del ion-content */
+ion-content {
+    --ion-background-color: #ffffff !important;
+  }
+
+ion-card{
+    --background: #ffffff;
+}
+
+  ion-card-content{
+    --background: #ffffff;
+  }
+  ion-card-header{
+    --background: #ffffff;
+  }
+  ion-card-title{
+    --color: #0A2740;
+    font-weight: bold;
+  }
+  
+  /* Encabezado personalizado */
+  .custom-header {
+    --background: #0A2740;
+    --color: white;
+    text-align: center;
+  }
+  
+  /* Estilos de los acordeones */
+  ion-accordion {
+    --background: #f8f9fa;
+    --color: #0d47a1;
+    border-radius: 8px;
+    margin-bottom: 5px;
+  }
+  
+  .solucion-texto {
+    padding: 10px;
+    font-size: 0.9rem;
+    color: #333;
+  }
+  
+  /* Estilos del textarea */
+  ion-textarea {
+    border: 2px solid #0A2740;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 1rem;
+    width: 100%;
+    background: #ffffff;
+  }
+  
+  .btn-send-message{
+    --background: #0A2740 !important;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+
+    &:hover {
+        transform: scale(1.01);
+      }
+  }
+  
+  ion-item{
+    --background: #0A2740;
+    --color: white;
+    transition: transform 0.5s ease;
+
+    &:hover {
+        transform: translateX(5px);
+      }
+  }
+
+  /* Estilos de los métodos de contacto */
+  .contact-methods {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 10px;
+  }
+  
+  .contact-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50% !important;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    background-color: #0A2740;
+    color: #ffffff;
+  
+    ion-icon {
+      font-size: 2rem;
+    }
+  
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.25);
+    }
+  }
+  

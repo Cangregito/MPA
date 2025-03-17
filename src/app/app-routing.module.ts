@@ -26,6 +26,10 @@ const routes: Routes = [
   {
     path: 'sensores',
     loadChildren: () => import('./sensores/sensores.module').then(m => m.SensoresPageModule)
+  },
+  {
+    path: 'soporte',
+    loadChildren: () => import('./soporte/soporte.module').then(m => m.SoportePageModule)
   }
 ];
 
