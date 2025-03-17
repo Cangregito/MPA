@@ -1,96 +1,20 @@
-<ion-header [translucent]="true">
-  <ion-toolbar  class="custom-header" >
-    <ion-title>Parámetros</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Parámetros</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="6" size-md="6" size-lg="4" size-xl="3" *ngFor="let sensor of sensoresList">
+        <ion-card class="sensor-card" (click)="openModal(sensor.nombre)">
 
-  <div class="sensor-cards">
+          <ion-card-header>
+            <ion-icon [name]="sensor.icono" class="sensor-icon"></ion-icon>
+            <ion-card-title>{{ sensor.nombre }}</ion-card-title>
+          </ion-card-header>
 
-    <ion-card class="sensor-card" (click)="openModal('Temperatura')">
-      <ion-card-header>
-        <ion-icon name="thermometer-outline" class="sensor-icon"></ion-icon>
-        <ion-card-title>Temperatura</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p class="sensor-value">25°C</p>
-      </ion-card-content>
-    </ion-card>
+          <ion-card-content>
+            <p class="sensor-value">{{ sensor.valor }}</p>
+          </ion-card-content>
 
-    <ion-card class="sensor-card" (click)="openModal('Humedad')">
-      <ion-card-header>
-        <ion-icon name="water-outline" class="sensor-icon"></ion-icon>
-        <ion-card-title>Humedad</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p class="sensor-value">60%</p>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card class="sensor-card" (click)="openModal('Presión')">
-      <ion-card-header>
-        <ion-icon name="speedometer-outline" class="sensor-icon"></ion-icon>
-        <ion-card-title>Presión</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p class="sensor-value">1013 hPa</p>
-      </ion-card-content>
-    </ion-card>
-    <ion-card class="sensor-card" (click)="openModal('MQ2')">
-      <ion-card-header>
-        <ion-icon name="flame-outline" class="sensor-icon"></ion-icon>
-        <ion-card-title>MQ2 - Gas Inflamable</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p class="sensor-value">200 ppm</p>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card class="sensor-card" (click)="openModal('MQ4')">
-      <ion-card-header>
-        <ion-icon name="cloud-outline" class="sensor-icon"></ion-icon>
-        <ion-card-title>MQ4 - Gas Metano</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p class="sensor-value">180 ppm</p>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card class="sensor-card" (click)="openModal('MQ7')">
-      <ion-card-header>
-        <ion-icon name="warning-outline" class="sensor-icon"></ion-icon>
-        <ion-card-title>MQ7 - Monóxido de Carbono</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p class="sensor-value">35 ppm</p>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card class="sensor-card" (click)="openModal('MQ135')">
-      <ion-card-header>
-        <ion-icon name="leaf-outline" class="sensor-icon"></ion-icon>
-        <ion-card-title>MQ135 - Calidad del Aire</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p class="sensor-value">300 ppm</p>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card class="sensor-card" (click)="openModal('Calidad_Aire')">
-      <ion-card-header>
-        <ion-icon name="partly-sunny-outline" class="sensor-icon"></ion-icon>
-        <ion-card-title>Índice de Calidad del Aire</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p class="sensor-value">Buena (50)</p>
-      </ion-card-content>
-    </ion-card>
-
-  </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -2,24 +2,31 @@
 ion-content {
   --ion-background-color: #ffffff !important;
 }
-ion-card-title{
+
+/* Estilos del título de las tarjetas */
+ion-card-title {
   color: #0d47a1;
   font-size: 1.1rem;
   font-weight: bold;
 }
-/* Contenedor de las tarjetas - Flexbox con wrap */
-.sensor-cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px;
-}
+
+/* Encabezado personalizado */
 .custom-header {
   --background: #0A2740; /* Azul oscuro */
   --color: white;
   text-align: center;
 }
+
+/* Contenedor de las tarjetas dentro de ion-grid */
+ion-grid {
+  padding: 20px;
+  margin-top: 33px;
+}
+
+ion-row {
+  justify-content: center;
+}
+
 /* Estilos de las tarjetas */
 .sensor-card {
   background: white; /* Fondo blanco */
@@ -29,7 +36,6 @@ ion-card-title{
   border-radius: 12px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  width: 500px; /* Tarjetas más grandes */
   text-align: center;
 
   &:hover {
@@ -60,8 +66,9 @@ ion-card-title{
   margin-bottom: 5px;
 }
 
+/* Estilos para el modal */
 ion-modal {
-  --background: white;  /* Establecer el fondo del modal a blanco */
+  --background: white;  
   --border-radius: 20px;
   --width: 80%;
   --height: auto;
@@ -69,8 +76,8 @@ ion-modal {
 
 /* 🔹 Responsividad */
 @media (max-width: 1024px) { /* Tablets */
-  .sensor-card {
-    width: 280px;
+  ion-col {
+    max-width: 50%;
   }
   .sensor-value {
     font-size: 1.8rem;
@@ -78,8 +85,8 @@ ion-modal {
 }
 
 @media (max-width: 768px) { /* Teléfonos grandes */
-  .sensor-card {
-    width: 100%;
+  ion-col {
+    max-width: 100%;
   }
   .sensor-value {
     font-size: 1.6rem;
@@ -87,8 +94,8 @@ ion-modal {
 }
 
 @media (max-width: 480px) { /* Teléfonos pequeños */
-  .sensor-card {
-    width: 100%;
+  ion-col {
+    max-width: 100%;
   }
   .sensor-value {
     font-size: 1.4rem;

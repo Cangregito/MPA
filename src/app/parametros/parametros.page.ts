@@ -18,6 +18,17 @@ export class ParametrosPage {
   modalData: any[] = [];
   modalValue: string = '';
 
+  sensoresList = [
+    { nombre: 'Temperatura', icono: 'thermometer-outline', valor: '25°C' },
+    { nombre: 'Humedad', icono: 'water-outline', valor: '60%' },
+    { nombre: 'Presión', icono: 'speedometer-outline', valor: '1013 hPa' },
+    { nombre: 'MQ2', icono: 'flame-outline', valor: '200 ppm' },
+    { nombre: 'MQ4', icono: 'cloud-outline', valor: '180 ppm' },
+    { nombre: 'MQ7', icono: 'warning-outline', valor: '35 ppm' },
+    { nombre: 'MQ135', icono: 'leaf-outline', valor: '300 ppm' },
+    { nombre: 'Calidad_Aire', icono: 'partly-sunny-outline', valor: 'Buena (50)' },
+  ];
+
 // Simulación de datos de sensores
 sensores: Record<string, { fecha: string; hora: string; valor: string }[]> = {
   Temperatura: [
