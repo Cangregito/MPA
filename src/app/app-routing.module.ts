@@ -30,6 +30,18 @@ const routes: Routes = [
   {
     path: 'soporte',
     loadChildren: () => import('./soporte/soporte.module').then(m => m.SoportePageModule)
+  },
+  {
+    path: 'nosotros',
+    loadChildren: () => import('./nosotros/nosotros.module').then(m => m.NosotrosPageModule)
+  },
+  {
+    path: 'puertas',
+    loadChildren: () => import('./puertas/puertas.module').then(m => m.PuertasPageModule)
+  },
+  {
+    path: 'elevador',
+    loadChildren: () => import('./elevador/elevador.module').then(m => m.ElevadorPageModule)
   }
 ];
 

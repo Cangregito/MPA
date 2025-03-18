@@ -5,7 +5,7 @@
       <!-- Sección Principal -->
       <ion-item-divider class="menu-divider">Mi Cuenta</ion-item-divider>
 
-      <ion-item class="menu-item" button detail="false">
+      <ion-item [routerLink]="['/tabs/perfil']" class="menu-item" button detail="false">
         <ion-icon name="person" slot="start" class="menu-icon"></ion-icon>
         <ion-label>Mi Perfil</ion-label>
         <ion-ripple-effect></ion-ripple-effect>
