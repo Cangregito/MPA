@@ -1,13 +1,124 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>nosotros</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">nosotros</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- Hero Section -->
+  <section class="hero animate-fade-in">
+    <div class="hero-content">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/" class="back-button"></ion-back-button>
+      </ion-buttons>
+      <h1 class="hero-title">MPA - Monitoreo y Prevención de Accidentes</h1>
+      <p class="hero-subtitle">Sistema integrado de seguridad para entornos educativos</p>
+      <div class="hero-icons">
+        <ion-icon name="flame-outline" class="hero-icon"></ion-icon>
+        <ion-icon name="water-outline" class="hero-icon"></ion-icon>
+        <ion-icon name="alert-circle-outline" class="hero-icon"></ion-icon>
+        <ion-icon name="snow-outline" class="hero-icon"></ion-icon>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección: Acerca del Proyecto -->
+  <section class="section about-us animate-slide-up">
+    <div class="container">
+      <div class="section-header">
+        <ion-icon name="school-outline" class="section-icon"></ion-icon>
+        <h2>Proyecto Universitario UTCJ</h2>
+      </div>
+      <div class="content-grid">
+        <div class="content-text">
+          <p class="emphasis">
+            <span class="accent-block"></span>
+            Sistema prototipo para detección temprana de emergencias mediante sensores IoT 
+            y energía renovable.
+          </p>
+          <div class="highlight-list">
+            <div class="highlight-item">
+              <ion-icon name="hardware-chip-outline" class="highlight-icon"></ion-icon>
+              <div>
+                <h3>4 Tipos de Sensores</h3>
+                <p>Fuego, Gas, Inundación y Ruido</p>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <ion-icon name="flashlight-outline" class="highlight-icon"></ion-icon>
+              <div>
+                <h3>Alimentación Solar</h3>
+                <p>Reducción de costos operativos</p>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <ion-icon name="alarm-outline" class="highlight-icon"></ion-icon>
+              <div>
+                <h3><5 Min. Respuesta</h3>
+                <p>Notificaciones automáticas a usuarios</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content-image">
+          <img src="../assets/icon/maqueta-mpa.png" alt="Maqueta del sistema MPA">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección: Funcionalidades Clave -->
+  <section class="section technology animate-fade-in">
+    <div class="container">
+      <div class="section-header">
+        <ion-icon name="git-merge-outline" class="section-icon"></ion-icon>
+        <h2>Sistema Integrado</h2>
+      </div>
+      <div class="tech-stack">
+        <div class="tech-item">
+          <div class="tech-icon-container">
+            <ion-icon name="wifi-outline" class="tech-icon"></ion-icon>
+          </div>
+          <h4>Comunicación Entre Edificios</h4>
+          <p>Dispositivos ESP32 para alertas simultáneas</p>
+        </div>
+        <div class="tech-item">
+          <div class="tech-icon-container">
+            <ion-icon name="phone-portrait-outline" class="tech-icon"></ion-icon>
+          </div>
+          <h4>Aplicación Híbrida</h4>
+          <p>Monitoreo en tiempo real y control de luces/ascensores</p>
+        </div>
+        <div class="tech-item">
+          <div class="tech-icon-container">
+            <ion-icon name="document-text-outline" class="tech-icon"></ion-icon>
+          </div>
+          <h4>Reportes Automatizados</h4>
+          <p>Gráficos históricos y cobertura del 100% de incidentes</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección: Equipo -->
+<!-- Sección: Equipo -->
+<section class="section team animate-slide-up">
+  <div class="container">
+    <div class="section-header">
+      <ion-icon name="people-outline" class="section-icon"></ion-icon>
+      <h2>Equipo de Desarrollo</h2>
+    </div>
+    <div class="team-grid">
+      <div class="team-member">
+        <ion-icon name="person-circle-outline" class="member-icon"></ion-icon>
+        <h4>Jassiel García</h4>
+        <p>Gestión de Proyecto</p>
+      </div>
+      <div class="team-member">
+        <ion-icon name="person-circle-outline" class="member-icon"></ion-icon>
+        <h4>Erick De Santiago</h4>
+        <p>Especialista en Hardware</p>
+      </div>
+      <div class="team-member">
+        <ion-icon name="person-circle-outline" class="member-icon"></ion-icon>
+        <h4>Ari Arroyo</h4>
+        <p>Desarrollo de Software</p>
+      </div>
+    </div>
+  </div>
+</section>
 </ion-content>

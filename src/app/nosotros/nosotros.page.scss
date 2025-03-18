@@ -1,0 +1,242 @@
+/* Estilos actualizados con enfoque en #0A2740 */
+.hero {
+    background-color: #0A2740;
+    color: white;
+    padding: 4rem 1rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .hero:after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: -10%;
+    width: 120%;
+    height: 100px;
+    background: white;
+    transform: rotate(3deg);
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+    z-index: 1;
+    position: relative;
+  }
+  
+  .hero-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .hero-icon {
+    font-size: 2.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+  }
+  
+  .hero-icon:hover {
+    transform: translateY(-5px);
+  }
+  
+  .section-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    position: relative;
+    padding-bottom: 1rem;
+  }
+  
+  .section-header:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: #0A2740;
+  }
+  
+  .section-icon {
+    font-size: 2.5rem;
+    color: #0A2740;
+    margin-bottom: 1rem;
+  }
+  
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  
+  .highlight-list {
+    margin-top: 2rem;
+  }
+  
+  .highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    background: #f8f9fa;
+    border-left: 4px solid #0A2740;
+    transition: transform 0.3s ease;
+  }
+  
+  .highlight-item:hover {
+    transform: translateX(10px);
+  }
+  
+  .highlight-icon {
+    font-size: 1.8rem;
+    color: #0A2740;
+    min-width: 40px;
+  }
+  
+  .tech-stack {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  
+  .tech-item {
+    text-align: center;
+    padding: 2rem;
+    border: 2px solid #0A2740;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+  
+  .tech-item:hover {
+    background: #0A2740;
+    color: white;
+  }
+  
+  .tech-item:hover .tech-icon {
+    color: white;
+  }
+  
+  .tech-icon-container {
+    margin-bottom: 1.5rem;
+  }
+  
+  .tech-icon {
+    font-size: 3rem;
+    color: #0A2740;
+    transition: color 0.3s ease;
+  }
+  
+  .accent-block {
+    display: block;
+    width: 50px;
+    height: 4px;
+    background: #0A2740;
+    margin-bottom: 1rem;
+  }
+  
+  /* Animaciones mejoradas */
+  @keyframes professionalEntrance {
+    0% {
+      opacity: 0;
+      transform: translateY(30px) scale(0.98);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  .animate-slide-up {
+    animation: professionalEntrance 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+  
+  @media (max-width: 768px) {
+    .content-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .hero-title {
+      font-size: 2rem;
+    }
+    
+    .tech-stack {
+      grid-template-columns: 1fr;
+    }
+  }
+  .back-button {
+    --color: white;
+    --icon-font-size: 1.8rem;
+    margin-left: 10px;
+  }
+  
+  .back-button:hover {
+    --color: rgba(255, 255, 255, 0.8);
+  }
+  /* Reemplazamos variables por valores específicos en cada sección */
+.team {
+    padding: 4rem 1rem;
+    background: #f8f9fa; // Color original de $light-bg
+    position: relative;
+  
+    &-member {
+      background: white;
+      border-radius: 10px; // Valor de $border-radius
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); // Valor de $box-shadow
+      border-bottom: 3px solid transparent;
+  
+      &:hover {
+        border-color: #0A2740; // Color primary original
+      }
+    }
+  
+    .member-icon {
+      color: #888; // Color equivalente a lighten($text-color, 30%)
+    }
+  
+    h4 {
+      color: #0A2740; // Color primary
+    }
+  
+    p {
+      color: #666; // Color equivalente a lighten($text-color, 20%)
+    }
+  }
+  
+  /* Mantenemos consistencia con valores fijos */
+  .section-header {
+    &:after {
+      background: #0A2740; // Color primary
+    }
+    ion-icon {
+      color: #0A2740;
+    }
+  }
+  
+  .tech-item {
+    border-color: #0A2740;
+    &:hover {
+      background: #0A2740;
+    }
+  }
