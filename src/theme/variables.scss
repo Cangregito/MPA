@@ -1,2 +1,38 @@
-// For information on how to create your own theme, please see:
-// http://ionicframework.com/docs/theming/
+:root {
+    --ion-color-primary: #0A2740;
+    --ion-color-primary-degradado: linear-gradient(160deg, #0A2740 0%, #123456 100%);
+    --ion-color-secondary: #ffffff;
+    --ion-background-color: white;
+    --ion-text-color: white;
+    --ion-basic-text: black;
+    --border-cards: transparent;
+    --letra-cards: #0d47a1;
+    --tab-hover: rgba(255, 255, 255, 0.1);
+    --tab-select: rgba(255, 255, 255, 0.2);
+    --card-shadow: rgba(0, 0, 0, 0.15);
+    --card-hover-shadow: rgba(0, 0, 0, 0.2);
+
+    --chart-label: rgb(7, 85, 164);     /* Color de etiquetas */
+    --chart-linea: rgb(0, 51, 102);     /* Color de la línea */
+    --chart-grid: rgba(0, 0, 0, 0.1);   /* Color de la cuadrícula */
+    --chart-fill: rgba(0, 51, 102, 0.2); /* Fondo debajo de la línea */
+  }
+  
+  .dark-mode {
+    --ion-background-color: #121212;
+    --ion-color-primary-degradado: linear-gradient(160deg, #121212 0%, #232323 100%);
+    --ion-text-color: white;
+    --ion-color-primary: #11181e;
+    --border-cards: #007bff;
+    --letra-cards: #2196f3;
+    --ion-basic-text: white;
+    --tab-hover: rgb(0, 0, 255, 0.1);
+    --tab-select: rgba(0, 0, 255, 0.2);
+    --card-shadow: rgba(0, 0, 255, 0.15);
+    --card-hover-shadow: rgba(0, 94, 255, 0.2);
+
+    --chart-label: rgb(255, 0, 0);
+    --chart-linea: rgb(255, 0, 0);
+    --chart-grid: rgba(255, 0, 0, 0.2);
+    --chart-fill: rgba(255, 0, 0, 0.1);
+  }

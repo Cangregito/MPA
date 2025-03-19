@@ -1,11 +1,12 @@
+
 .custom-header {
-  --background: #0A2740;
-  --color: white;
+  background: var(--ion-color-primary);
+  color: var(--ion-text-color);
   text-align: center;
 }
 
 ion-content {
-  --ion-background-color: white !important;
+  background-color: var(--ion-background-color) !important;
 }
 
 swiper-container {
@@ -47,13 +48,12 @@ swiper-slide {
   ion-icon {
     font-size: 3rem;
     color: #007bff;
-    -bottom: 10px;
   }
 
   p {
     font-size: 1.2rem;
     font-weight: bold;
-    color: #333;
+    color: var(--ion-basic-text);
     max-width: 90%;
     line-height: 1.5;
   }
@@ -73,9 +73,10 @@ ion-col{
 }
 // Cards
 ion-card {
-  background-color: white;
+  background-color: var(--ion-background-color);
   border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--border-cards);
+  box-shadow: 0 4px 15px var(--card-shadow);
   transition: transform 0.2s ease-in-out;
   text-align: center;
   height: 100%;
@@ -83,7 +84,7 @@ ion-card {
   
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 20px var(--card-hover-shadow);
   }
 }
 
@@ -101,7 +102,6 @@ ion-card-header {
   display: flex;
   align-items: center;
   justify-content: center;
-  -bottom: 10px;
 }
 
 .card-icon {

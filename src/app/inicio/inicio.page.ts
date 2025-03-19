@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 import { IonicSlides } from '@ionic/angular';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { register } from 'swiper/element/bundle';
+import { DarkModeService } from '../services/dark-mode.service';
 register();
 
 @Component({
@@ -17,9 +18,9 @@ register();
 export class InicioPage implements OnInit {
   swiperModules = [IonicSlides];
 
-  constructor() { }
+  constructor(private darkModeService: DarkModeService) { }
 
   ngOnInit() {
+    this.darkModeService.loadTheme(); 
   }
-
 }

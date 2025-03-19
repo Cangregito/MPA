@@ -3,6 +3,7 @@ import { ModalController, IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ModalContent } from './modal-content.component';
+import { DarkModeService } from '../services/dark-mode.service';
 
 @Component({
   selector: 'app-parametros',
@@ -81,7 +82,12 @@ sensores: Record<string, { fecha: string; hora: string; valor: string }[]> = {
   ],
 };
 
+constructor(private darkModeService: DarkModeService) { }
 
+
+ngOnInit() {
+  this.darkModeService.loadTheme(); 
+}
   async openModal(sensor: string) {
     this.modalTitle = sensor;
     this.modalData = this.sensores[sensor] || [];

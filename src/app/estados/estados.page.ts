@@ -1,7 +1,9 @@
-import { Component, ViewChildren, QueryList, AfterViewInit, ElementRef, ChangeDetectorRef } from '@angular/core';
+import { Component, ViewChildren, QueryList, AfterViewInit, ElementRef, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { Chart } from 'chart.js/auto';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
+import { DarkModeService } from '../services/dark-mode.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-estados',
@@ -10,26 +12,18 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [IonicModule, CommonModule],
 })
-export class EstadosPage implements AfterViewInit {
+export class EstadosPage implements AfterViewInit, OnDestroy {
   @ViewChildren('chartCanvas') chartCanvas!: QueryList<ElementRef>;
   charts: Chart[] = [];
+  labels: string[] = this.generateTimeLabels();
+  private themeSubscription!: Subscription;
 
   sensores = [
-    'Temperatura (°C)',
-    'Humedad (%)',
-    'Nivel de Luz (Lux)',
-    'Presión Atmosférica (hPa)',
-    'Distancia (cm)',
-    'Ruido (dB)',
-    'Gas MQ2 (%)',
-    'Vibración (G)',
-    'Consumo de Energía (W)',
-    'Nivel de Agua (%)'
+    'Temperatura (°C)', 'Humedad (%)', 'Nivel de Luz (Lux)', 'Presión Atmosférica (hPa)',
+    'Distancia (cm)', 'Ruido (dB)', 'Gas MQ2 (%)', 'Vibración (G)', 'Consumo de Energía (W)', 'Nivel de Agua (%)'
   ];
 
-  labels: string[] = this.generateTimeLabels();
-
-  constructor(private cdRef: ChangeDetectorRef) {}
+  constructor(private cdRef: ChangeDetectorRef, private darkModeService: DarkModeService) {}
 
   ngAfterViewInit() {
     setTimeout(() => {
@@ -42,8 +36,18 @@ export class EstadosPage implements AfterViewInit {
 
       setInterval(() => {
         this.updateCharts();
-      }, 5000); // Actualiza cada 5 segundos
+      }, 5000);
     }, 500);
+
+    this.themeSubscription = this.darkModeService.darkMode$.subscribe(() => {
+      this.updateChartColors(); 
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.themeSubscription) {
+      this.themeSubscription.unsubscribe();
+    }
   }
 
   createChart(canvas: any, index: number) {
@@ -55,8 +59,8 @@ export class EstadosPage implements AfterViewInit {
         datasets: [{
           label: this.sensores[index],
           data: this.getRandomData(index),
-          borderColor: 'rgb(3, 71, 139)', // 🔹 Azul oscuro
-          backgroundColor: 'rgba(0, 51, 102, 0.2)', // 🔹 Azul oscuro semi-transparente
+          borderColor: this.getCssVariable('--chart-linea'),
+          backgroundColor: this.getCssVariable('--chart-fill'),
           borderWidth: 2,
           fill: true
         }]
@@ -66,23 +70,53 @@ export class EstadosPage implements AfterViewInit {
         maintainAspectRatio: false,
         plugins: {
           legend: {
-            labels: { color: 'rgb(7, 85, 164)' }
+            labels: { color: this.getCssVariable('--chart-label') }
           }
         },
         scales: {
           x: {
-            ticks: { color: 'rgb(0, 3, 167)' },
-            grid: { color: 'rgba(0, 0, 0, 0.1)' }
+            ticks: { color: this.getCssVariable('--chart-label') },
+            grid: { color: this.getCssVariable('--chart-grid') }
           },
           y: {
-            ticks: { color: 'rgb(0, 51, 102)' },
-            grid: { color: 'rgba(0, 0, 0, 0.1)' }
+            ticks: { color: this.getCssVariable('--chart-linea') },
+            grid: { color: this.getCssVariable('--chart-grid') }
           }
         }
       }
     });
   }
+  
+  updateChartColors() {
+      this.charts.forEach(chart => {
+        chart.data.datasets.forEach(dataset => {
+          dataset.borderColor = this.getCssVariable('--chart-linea');
+          dataset.backgroundColor = this.getCssVariable('--chart-fill');
+        });
+  
+        chart.options.plugins!.legend!.labels!.color = this.getCssVariable('--chart-label');
+        chart.options.scales!['x']!.ticks!.color = this.getCssVariable('--chart-label');
+        chart.options.scales!['x']!.grid!.color = this.getCssVariable('--chart-grid');
+        chart.options.scales!['y']!.ticks!.color = this.getCssVariable('--chart-label');
+        chart.options.scales!['y']!.grid!.color = this.getCssVariable('--chart-grid');
+  
+        chart.update();
+      });
+  }
+  
+  
+  
+  
 
+  getCssVariable(variable: string): string {
+    document.documentElement.style.display = "none";  // Ocultar temporalmente
+    document.documentElement.offsetHeight; // Forzar reflow
+    document.documentElement.style.display = ""; // Restaurar
+  
+    return window.getComputedStyle(document.documentElement).getPropertyValue(variable).trim();
+  }
+  
+  
   updateCharts() {
     const newTimeLabel = this.getCurrentTime();
     this.labels.push(newTimeLabel);
@@ -94,7 +128,7 @@ export class EstadosPage implements AfterViewInit {
       chart.data.labels = [...this.labels];
 
       chart.data.datasets.forEach(dataset => {
-        dataset.data.push(this.getRandomValue(index)); 
+        dataset.data.push(this.getRandomValue(index));
         if (dataset.data.length > 7) {
           dataset.data.shift();
         }
@@ -110,16 +144,7 @@ export class EstadosPage implements AfterViewInit {
 
   getRandomValue(index: number): number {
     const ranges = [
-      [15, 40],   // Temperatura (°C)
-      [30, 80],   // Humedad (%)
-      [0, 1000],  // Nivel de Luz (Lux)
-      [950, 1050],// Presión Atmosférica (hPa)
-      [2, 400],   // Distancia (cm)
-      [30, 90],   // Ruido (dB)
-      [0, 100],   // Gas MQ2 (%)
-      [0, 5],     // Vibración (G)
-      [10, 500],  // Consumo de Energía (W)
-      [0, 100]    // Nivel de Agua (%)
+      [15, 40], [30, 80], [0, 1000], [950, 1050], [2, 400], [30, 90], [0, 100], [0, 5], [10, 500], [0, 100]
     ];
 
     const [min, max] = ranges[index % ranges.length];
@@ -138,5 +163,13 @@ export class EstadosPage implements AfterViewInit {
     const now = new Date();
     now.setMinutes(now.getMinutes() + offsetMinutes);
     return now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+  }
+
+  ngOnInit() {
+    this.darkModeService.loadTheme();
+  
+    this.darkModeService.darkMode$.subscribe(() => {
+      this.updateChartColors();
+    });
   }
 }

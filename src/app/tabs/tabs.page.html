@@ -56,12 +56,15 @@
 <!-- Header con Botones -->
 <ion-header [translucent]="true">
   <ion-toolbar class="custom-header">
-    <!-- Botón de tema a la izquierda -->
-    <ion-buttons slot="start">
-      <ion-button>
-        <ion-icon slot="icon-only" name="contrast"></ion-icon>
-      </ion-button>
-    </ion-buttons>
+  <!-- Botón de tema a la izquierda -->
+  <!-- Botón para alternar entre modo claro y oscuro -->
+  <ion-buttons slot="start">
+    <ion-button (click)="toggleDarkMode()">
+      <ion-icon slot="icon-only" [name]="darkMode ? 'sunny-outline' : 'moon-outline'"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+
+
 
     <ion-title>{{ pageTitle }}</ion-title>
 

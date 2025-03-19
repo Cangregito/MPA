@@ -1,23 +1,13 @@
-/* Fondo del ion-content */
 ion-content {
-  --ion-background-color: #ffffff !important;
+  background-color: var(--ion-background-color) !important;
 }
 
-/* Estilos del título de las tarjetas */
 ion-card-title {
-  color: #0d47a1;
+  color: var(--letra-cards);
   font-size: 1.1rem;
   font-weight: bold;
 }
 
-/* Encabezado personalizado */
-.custom-header {
-  --background: #0A2740; /* Azul oscuro */
-  --color: white;
-  text-align: center;
-}
-
-/* Contenedor de las tarjetas dentro de ion-grid */
 ion-grid {
   padding: 20px;
   margin-top: 33px;
@@ -27,27 +17,29 @@ ion-row {
   justify-content: center;
 }
 
-/* Estilos de las tarjetas */
 .sensor-card {
-  background: white; /* Fondo blanco */
-  color: #0d47a1; /* Azul oscuro */
-  border-left: 8px solid #2196f3; /* Borde azul brillante */
+  background: var(--ion-background-color); 
+  color: var(--letra-cards);
+  border-left: 8px solid var(--letra-cards);
+  border-right: 1px solid var(--letra-cards);
+  border-top: 1px solid var(--letra-cards);
+  border-bottom: 1px solid var(--letra-cards);
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 4px 12px var(--card-shadow);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   text-align: center;
 
   &:hover {
     transform: scale(1.05);
-    box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 6px 16px var(--card-hover-shadow);
   }
 }
 
 /* Iconos azules más grandes */
 .sensor-icon {
   font-size: 3.5rem;
-  color: #2196f3;
+  color: var(--letra-cards);
   margin-bottom: 10px;
 }
 
@@ -55,7 +47,7 @@ ion-row {
 .sensor-value {
   font-size: 2rem;
   font-weight: bold;
-  color: #0d47a1;
+  color: var(--letra-cards);
   text-align: center;
 }
 

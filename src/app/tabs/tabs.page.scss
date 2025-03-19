@@ -1,7 +1,6 @@
 .tab-bar {
-  --background: #0A2740; 
-  --color: white;
-  --color-selected: white;
+  --background: var(--ion-color-primary); 
+  --color: var(--ion-text-color);
   height: 10vh;
 
   ion-tab-button {
@@ -10,12 +9,12 @@
     transition: all 0.3s ease-in-out;
 
     &:hover {
-      background-color: rgba(255, 255, 255, 0.1); 
+      background-color: var(--tab-hover); 
       transform: scale(1.05); 
     }
 
     &.tab-selected {
-      background-color: rgba(255, 255, 255, 0.2);
+      background-color: var(--tab-select);
       font-weight: bold; 
     }
   }
@@ -26,73 +25,53 @@
   ion-label{
     font-size: 0.9rem;
   }
-
-  ion-icon, ion-label {
-    transition: color 0.3s ease-in-out; 
-
-    ion-tab-button:hover & {
-      color: #ADD8E6; 
-    }
-  }
 }
 
 .custom-header {
-  --background: #0A2740;  /* Azul oscuro */
-  --color: white;
+  --background: var(--ion-color-primary); 
+  --color: var(--ion-text-color);
   text-align: center;
 
   ion-menu-button {
-    --color: white;
+    --color: var(ion-text-color);
   }
 }
 
 .custom-menu {
   .menu-header {
-    --background: #0A2740;  /* Azul oscuro */
-    --color: white;
+    background: var(--ion-color-primary); 
+    color: var(ion-text-color);
   }
 
   .menu-content {
-    --background: #0A2740;
+    background: var(--ion-color-primary);
     --ion-item-background: transparent;
-    --color: white;
+    color: var(--ion-text-color);
   }
 
   .menu-item {
     --background-hover: rgba(255, 255, 255, 0.1);
-    --color: white;
+    color: var(--ion-text-color);
     margin: 8px 0;
 
     ion-icon {
-      color: #ffffff;  /* Azul claro para contraste */
+      color: var(--ion-text-color); 
     }
   }
 }
 
-ion-content {
-  --ion-background-color: #ffffff !important;
-}
 /* Modificaciones adicionales */
 ion-menu[side="end"] {
   --ion-menu-side: end;
-  border-left: 2px solid rgba(255, 255, 255, 0.1);
+  border-left: 2px solid var(--tab-hover);
 }
 
 /* Estilos para el botón de tema oscuro */
 .custom-header ion-button {
-  --color: white;
-  --background-hover: rgba(255, 255, 255, 0.1);
+  --color: var(--ion-text-color);
+  --background-hover: var(--tab-hover);
 }
 
-/* Estilos opcionales para modo oscuro (se activarían con clase) */
-.dark-mode {
-  --ion-background-color: #1a1a1a;
-  --ion-text-color: #ffffff;
-  
-  ion-card {
-    --background: #2a2a2a;
-  }
-}
 /* Estilos Mejorados */
 .custom-menu {
   --width: 280px;
@@ -100,7 +79,7 @@ ion-menu[side="end"] {
   --ion-item-color: white;
 
   .menu-header {
-    --background: linear-gradient(160deg, #0A2740 0%, #123456 100%);
+    --background: var(ion-color-primary-degradado);
     padding: 20px 0;
     
     .menu-title {
@@ -117,8 +96,8 @@ ion-menu[side="end"] {
   }
 
   .menu-content {
-    --background: #0A2740;
-    background: linear-gradient(to bottom, #0A2740, #123456);
+    --background: (--ion-color-primary);
+    background: var(ion-color-primary-degradado);
   }
 
   .menu-divider {
@@ -130,7 +109,7 @@ ion-menu[side="end"] {
   }
 
   .menu-item {
-    --background-hover: rgba(255,255,255,0.1);
+    --background-hover: var(--tab-hover);
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     margin: 8px 10px;
     border-radius: 8px;
@@ -146,7 +125,7 @@ ion-menu[side="end"] {
     }
 
     &:hover {
-      background: rgba(255,255,255,0.05);
+      background: var(--tab-hover);
       transform: translateX(8px);
       
       .menu-icon {
@@ -166,21 +145,13 @@ ion-menu[side="end"] {
     
     &:hover {
       .menu-icon {
-        color: #FF7777;
+        color: #ff0000;
       }
     }
   }
 }
 
-/* Animación para el menú al abrir */
-ion-menu::part(backdrop) {
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(5px);
-}
 
-ion-menu::part(container) {
-  box-shadow: -8px 0 30px rgba(0,0,0,0.3);
-}
 
 @media (max-width: 1024px) {
   ion-icon{

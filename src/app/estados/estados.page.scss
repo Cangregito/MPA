@@ -1,19 +1,19 @@
 ion-content {
-  --ion-background-color: #ffffff !important;
+  background-color: var(--ion-background-color)  !important;
 }
 .chart-container {
-  background-color: white !important;
+  background-color: var(--ion-background-color) !important;
   padding: 5px;
   border-radius: 10px;
 }
 ion-card-header{
-  background-color: white !important;
+  background-color: var(--ion-background-color) !important;
 }
 ion-card-title{
-  color: darkblue !important;
+  color: var(--letra-cards) !important;
 }
 ion-card-content{
-  background-color: white !important;
+  background-color: var(--ion-background-color) !important;
 }
 canvas{
   height: 300px;
