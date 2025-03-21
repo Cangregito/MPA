@@ -1,6 +1,6 @@
 /* Nuevo Header */
 .custom-header {
-  --background: #0A2740; /* Azul oscuro */
+  --background: var(--ion-color-primary) !important;
   --color: white;
   text-align: center;
   font-weight: bold;
@@ -20,8 +20,7 @@ ion-back-button {
 }
 
 ion-content {
-  --ion-background-color: #E1EAF9 !important;
-  --ion-item-background: transparent !important;
+  --background: var(--ion-background-color) !important;
 }
 
 .wrapform {
@@ -30,15 +29,16 @@ ion-content {
 
 ion-item {
   color: #647B9D;
-  --border-color: #D4D7DB;
+  --border-color: var(--details-login);
   --highlight-color-focused: #1248A0;
   --padding-start: 0;
   --inner-padding-end: 0;
   font-size: 12px;
+  margin-top: 5px;
 }
 
 ion-item ion-input {
-  color: #647B9D;
+  color: var(--details-login);
 }
 
 ion-item ion-icon {
@@ -47,32 +47,27 @@ ion-item ion-icon {
 }
 
 ion-item ion-input:hover {
-  color: #1248A0;
+  color: var(--details-login-hover);
 }
 
-.password_forgot {
-  text-align: right;
+.password_forgot{
+  display: flex;
+  justify-content: flex-end;
 }
 
-.password_forgot ion-button {
-  font-size: 12px;
-  color: #0A4296;
+.password_forgot ion-button{
+  color: var(--details-login);
 }
-
-.sign-btn-wrap {
+.lgn-btn-wrap {
   text-align: center;
   padding-top: 20px;
 }
 
-.sign-btn {
-  --ion-primary-color: #215AB7;
-  --background-activated: #E1EAF9;
-  --background-focused: #E1EAF9;
-  --background-hover: #647B9D;
-  color: #F4F6FA;
+.lgn-btn {
+  color: white;
   border-radius: 25px;
-  --background: #0A2740; /* Azul oscuro */
-  background-color: #215AB7;
+  border: 1px solid var(--luces-border-off);
+  background-color: var(--ion-primary-color);
 }
 
 .text-tag {
@@ -91,15 +86,14 @@ ion-item ion-input:hover {
   text-align: center;
 }
 
-.social-btns ion-button {
-  width: 40px;
-  padding-left: 5px !important;
-}
-
 ion-card {
   --ion-background-color: transparent !important;
   box-shadow: none !important;
   background-color: transparent !important;
+}
+
+.btn-login{
+  color: var(--details-login);
 }
 
 .ion-card-footer {
@@ -121,3 +115,20 @@ ion-card {
   font-size: 14px;
   font-weight: 600;
 }
+
+.custom-icon{
+  color: var(--details-login);
+  width: 40px; 
+  height: 40px;
+  margin: 10px;
+}
+ion-button:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+ion-button {
+  width: auto;
+  overflow: visible !important;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  cursor: pointer;
+}  

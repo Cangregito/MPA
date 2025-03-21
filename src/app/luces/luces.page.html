@@ -3,9 +3,18 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
+    
     <ion-title>Control de Luces</ion-title>
+
+    <!-- Botón para abrir el popover -->
+    <ion-buttons slot="end">
+      <ion-button (click)="openMenu($event)">
+        <ion-icon name="options-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
 
 <ion-content [fullscreen]="true">
   <ion-grid>
@@ -22,7 +31,8 @@
 
           <ion-card-content>
             <!-- Evita que el toggle active el modal -->
-            <ion-toggle [(ngModel)]="estadoLuces[i]" 
+            <ion-toggle
+                        [(ngModel)]="estadoLuces[i]" 
                         (ionChange)="toggleLuz(i)" 
                         (click)="$event.stopPropagation()">
             </ion-toggle>

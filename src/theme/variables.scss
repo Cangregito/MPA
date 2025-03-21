@@ -5,34 +5,46 @@
     --ion-background-color: white;
     --ion-text-color: white;
     --ion-basic-text: black;
+    --details-login: #0A2740;
+    --details-login-hover: #006bc8;
     --border-cards: transparent;
+    --border-chart: transparent;
     --letra-cards: #0d47a1;
     --tab-hover: rgba(255, 255, 255, 0.1);
     --tab-select: rgba(255, 255, 255, 0.2);
     --card-shadow: rgba(0, 0, 0, 0.15);
     --card-hover-shadow: rgba(0, 0, 0, 0.2);
+    --luces-on-background: #ffffff;
+    --luces-on-text: #0A2740;
+    --luces-border-on: #0A2740;
+    --luces-border-off: #ffffff;
+    --luces-shadow: rgba(0, 0, 0, 0.15);
 
-    --chart-label: rgb(7, 85, 164);     /* Color de etiquetas */
-    --chart-linea: rgb(0, 51, 102);     /* Color de la línea */
-    --chart-grid: rgba(0, 0, 0, 0.1);   /* Color de la cuadrícula */
-    --chart-fill: rgba(0, 51, 102, 0.2); /* Fondo debajo de la línea */
+    --chart-label: rgb(0, 128, 255);
+    --chart-linea: rgb(0, 128, 255);
+    --chart-grid: rgba(127, 127, 127, 0.1);
+    --chart-fill: rgba(0, 51, 102, 0.2);
   }
   
   .dark-mode {
+    --ion-color-primary: #11181e;
     --ion-background-color: #121212;
     --ion-color-primary-degradado: linear-gradient(160deg, #121212 0%, #232323 100%);
     --ion-text-color: white;
-    --ion-color-primary: #11181e;
+    --details-login: rgb(0, 229, 255);
+    --details-login-hover:  rgb(0, 128, 143);
     --border-cards: #007bff;
+    --border-chart: rgba(0, 123, 255, 0.629);
     --letra-cards: #2196f3;
     --ion-basic-text: white;
     --tab-hover: rgb(0, 0, 255, 0.1);
     --tab-select: rgba(0, 0, 255, 0.2);
     --card-shadow: rgba(0, 0, 255, 0.15);
     --card-hover-shadow: rgba(0, 94, 255, 0.2);
-
-    --chart-label: rgb(255, 0, 0);
-    --chart-linea: rgb(255, 0, 0);
-    --chart-grid: rgba(255, 0, 0, 0.2);
-    --chart-fill: rgba(255, 0, 0, 0.1);
+    --luces-on-background: #11181e;
+    --luces-on-text: #ffffff;
+    --luces-border-on: #ffffff;
+    --luces-border-off: rgb(0, 229, 255);
+    --luces-shadow: rgba(255, 255, 255, 0.25);
+    --luces-shadow-dark: rgba(255, 255, 255, 1);
   }

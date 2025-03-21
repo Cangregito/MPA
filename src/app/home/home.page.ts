@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DarkModeService } from '../services/dark-mode.service';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,9 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class HomePage {
+  constructor(private darkModeService: DarkModeService) {}
 
-  constructor() {}
-
+  ngOnInit() {
+    this.darkModeService.loadTheme();
+  }
 }

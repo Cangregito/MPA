@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
+import { DarkModeService } from '../services/dark-mode.service';
 
 @Component({
   selector: 'app-registro',
@@ -11,9 +12,10 @@ import { IonicModule } from '@ionic/angular';
 })
 export class RegistroPage implements OnInit {
 
-  constructor() { }
+  constructor(private darkModeService: DarkModeService) {}
 
   ngOnInit() {
+    this.darkModeService.loadTheme();
   }
 
 }

@@ -1,11 +1,11 @@
 .custom-header {
-  --background: #0d47a1;
-  --color: white;
+  --background: var(--ion-color-primary) !important;
+  color: var(--ion-text-color);
   text-align: center;
 }
 
 ion-content {
-  --ion-background-color: white !important;
+  --background: var(--ion-background-color) !important;
   box-sizing: border-box;
 }
 
@@ -39,9 +39,9 @@ ion-card-title {
 
 /* 🔹 Estilos cuando el toggle está apagado */
 .luces-card-off {
-  background: #0d47a1;
-  color: white;
-  border: 2px solid white;
+  background: var(--ion-color-primary);
+  color: var(--luces-border-off);
+  border: 2px solid var(--luces-border-off);
   padding: 50px;
   border-radius: 15px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
@@ -55,26 +55,26 @@ ion-card-title {
 }
 
 .luces-card-off .luces-icon {
-  color: white;
+  color: var(--luces-border-off);
 }
 .luces-icon {
   font-size: 3.5rem;
-  color: #0d47a1;
+  color: var(--ion-color-primary);
   margin: 15px;
   display: block;
 }
 .luces-card-off ion-card-title {
-  color: white;
+  color: var(--luces-border-off);
 }
 
-/* 🔹 Estilos cuando el toggle está encendido */
+/* Estilos cuando el toggle está encendido */
 .luces-card-on {
-  background: white;
-  color: #0d47a1;
-  border: 2px solid #213df3;
+  background: var(--luces-on-background);
+  color: var(--luces-on-text);
+  border: 2px solid var(--luces-border-on);
   padding: 50px;
   border-radius: 15px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 4px 12px var(--luces-shadow);
   width: 400px;
   height: 250px;
   display: flex;
@@ -85,20 +85,23 @@ ion-card-title {
 }
 
 .luces-card-on .luces-icon {
-  color: #0d47a1;
+  color: var(--luces-on-text);
+  text-shadow: 0px 0px 10px var(--luces-shadow-dark);
 }
 
 .luces-card-on ion-card-title {
-  color: #0d47a1;
+  color: var(--luces-on-text);
+  text-shadow: 0px 0px 20px var(--luces-shadow-dark);
 }
 
-.ion-toggle {
+ion-toggle {
   display: flex;
   justify-content: center;
   margin-top: 10px;
-  --color: #0d47a1;
-  --background-checked: white;
-  --handle-background-checked: #0d47a1;
+  --track-background: var(--luces-border-off);
+  --track-background-checked: var(--luces-border-on);
+  --handle-background: var(--luces-border-on);
+  --handle-background-checked: var(--luces-border-off);
 }
 
 /* 🔹 Responsividad */
