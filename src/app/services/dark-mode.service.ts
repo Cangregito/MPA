@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class DarkModeService {
   private storageKey = 'darkMode';
-  private isDarkMode = false;
+  public isDarkMode = false;
   
   // Observable para detectar cambios de tema
   private darkModeSubject = new BehaviorSubject<boolean>(false);

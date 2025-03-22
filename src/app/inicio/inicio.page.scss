@@ -47,7 +47,7 @@ swiper-slide {
 
   ion-icon {
     font-size: 3rem;
-    color: #007bff;
+    color: var(--details-login);
   }
 
   p {
@@ -96,8 +96,9 @@ ion-card-header {
 }
 
 .icon-container {
-  background: #007bff;
+  background: var(--ion-color-primary);
   border-radius: 50%;
+  border: 2px solid var(--border-cards);
   padding: 15px;
   display: flex;
   align-items: center;
@@ -106,11 +107,11 @@ ion-card-header {
 
 .card-icon {
   font-size: 32px;
-  color: white;
+  color: var(--luces-border-off);
 }
 
 ion-card-title {
-  color: #007bff;
+  color: var(--letra-cards);
 }
 
 // 📌 Media Queries - Ajustes Responsivos

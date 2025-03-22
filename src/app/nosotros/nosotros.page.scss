@@ -1,13 +1,14 @@
 /* Estilos actualizados con enfoque en #0A2740 */
 .hero {
-    background-color: #0A2740;
+    background-color: var(--ion-color-primary);
     color: white;
-    padding: 4rem 1rem;
+    padding: 1rem 1rem 4rem 1rem;
     text-align: center;
     position: relative;
     overflow: hidden;
   }
   
+
   .hero:after {
     content: '';
     position: absolute;
@@ -15,7 +16,7 @@
     left: -10%;
     width: 120%;
     height: 100px;
-    background: white;
+    background: var(--ion-background-color);
     transform: rotate(3deg);
   }
   
@@ -44,7 +45,8 @@
   
   .hero-icon {
     font-size: 2.5rem;
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--background-contrast);
+    color: var(--details-login);
     padding: 1rem;
     border-radius: 50%;
     transition: transform 0.3s ease;
@@ -56,9 +58,13 @@
   
   .section-header {
     text-align: center;
-    margin-bottom: 2.5rem;
     position: relative;
-    padding-bottom: 1rem;
+    padding: 1rem;
+    margin: 0.1rem 20px 2.5rem 20px;
+    background: var(--background-contrast);
+  }
+  .section-header h2{
+    color: var(--luces-border-on);
   }
   
   .section-header:after {
@@ -69,12 +75,12 @@
     transform: translateX(-50%);
     width: 60px;
     height: 3px;
-    background: #0A2740;
+    background: var(--details-login) !important;
   }
   
   .section-icon {
     font-size: 2.5rem;
-    color: #0A2740;
+    color: var(--details-login) !important;
     margin-bottom: 1rem;
   }
   
@@ -86,28 +92,34 @@
   }
   
   .highlight-list {
-    margin-top: 2rem;
+    margin: 20px;
   }
   
   .highlight-item {
     display: flex;
     align-items: center;
+    color: var(--luces-on-text);
     gap: 1rem;
+    margin: 0.5rem;
     padding: 1.5rem;
-    margin: 1rem 0;
-    background: #f8f9fa;
-    border-left: 4px solid #0A2740;
+    background: var(--background-contrast);
+    border-left: 4px solid var(--details-login);
     transition: transform 0.3s ease;
   }
   
+  .emphasis{
+    margin: 20px;
+    color: var(--luces-on-text);
+  }
+
   .highlight-item:hover {
     transform: translateX(10px);
   }
   
   .highlight-icon {
     font-size: 1.8rem;
-    color: #0A2740;
-    min-width: 40px;
+    color: var(--details-login);
+    min-width: 20px;
   }
   
   .tech-stack {
@@ -115,23 +127,25 @@
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
+    margin: 20px;
   }
   
   .tech-item {
     text-align: center;
     padding: 2rem;
-    border: 2px solid #0A2740;
+    border: 2px solid var(--details-login) !important;
     border-radius: 10px;
     transition: all 0.3s ease;
+    color: var(--luces-on-text);
   }
   
   .tech-item:hover {
-    background: #0A2740;
-    color: white;
+    background-color: var(--details-login) !important;
+    color: var(--ion-background-color) !important;
   }
   
   .tech-item:hover .tech-icon {
-    color: white;
+    color: var(--ion-background-color) !important;
   }
   
   .tech-icon-container {
@@ -140,7 +154,7 @@
   
   .tech-icon {
     font-size: 3rem;
-    color: #0A2740;
+    color: var(--details-login) !important;
     transition: color 0.3s ease;
   }
   
@@ -148,7 +162,7 @@
     display: block;
     width: 50px;
     height: 4px;
-    background: #0A2740;
+    background: var(--details-login);
     margin-bottom: 1rem;
   }
   
@@ -194,49 +208,39 @@
   .back-button:hover {
     --color: rgba(255, 255, 255, 0.8);
   }
-  /* Reemplazamos variables por valores específicos en cada sección */
-.team {
-    padding: 4rem 1rem;
-    background: #f8f9fa; // Color original de $light-bg
-    position: relative;
-  
-    &-member {
-      background: white;
-      border-radius: 10px; // Valor de $border-radius
-      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); // Valor de $box-shadow
-      border-bottom: 3px solid transparent;
-  
-      &:hover {
-        border-color: #0A2740; // Color primary original
-      }
-    }
-  
-    .member-icon {
-      color: #888; // Color equivalente a lighten($text-color, 30%)
-    }
-  
-    h4 {
-      color: #0A2740; // Color primary
-    }
-  
-    p {
-      color: #666; // Color equivalente a lighten($text-color, 20%)
-    }
+  .team-grid {  
+    margin: 20px;
   }
   
-  /* Mantenemos consistencia con valores fijos */
-  .section-header {
-    &:after {
-      background: #0A2740; // Color primary
-    }
-    ion-icon {
-      color: #0A2740;
-    }
+  .team-member {
+    background: var(--background-contrast);
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 255, 0.1);
+    border-bottom: 3px solid transparent;
+    padding: 15px;
+    margin: 0.6rem;
+    transition: border-color 0.3s ease-in-out;
   }
   
-  .tech-item {
-    border-color: #0A2740;
-    &:hover {
-      background: #0A2740;
-    }
+  .team-member:hover {
+    border-color: var(--details-login); 
   }
+  
+  .member-icon {
+    color: var(--details-login);
+    font-size: 40px; 
+    display: block; 
+    margin-bottom: 10px; 
+  }
+  
+  .team-member h4 {
+    color: var(--details-login);
+    margin: 5px 0;
+  }
+  
+  .team-member p {
+    color: var(--luces-on-text);
+    font-size: 14px;
+  }
+  
+  

@@ -40,7 +40,7 @@ export class EstadosPage implements AfterViewInit, OnDestroy {
     }, 500);
 
     this.themeSubscription = this.darkModeService.darkMode$.subscribe(() => {
-      this.updateChartColors(); 
+      this.updateChartColors();
     });
   }
 
@@ -59,8 +59,8 @@ export class EstadosPage implements AfterViewInit, OnDestroy {
         datasets: [{
           label: this.sensores[index],
           data: this.getRandomData(index),
-          borderColor: this.getCssVariable('--chart-linea'),
-          backgroundColor: this.getCssVariable('--chart-fill'),
+          borderColor: this.getChartColor(), // Cambia según el modo
+          backgroundColor: this.getChartFill(), // Cambia según el modo
           borderWidth: 2,
           fill: true
         }]
@@ -70,53 +70,57 @@ export class EstadosPage implements AfterViewInit, OnDestroy {
         maintainAspectRatio: false,
         plugins: {
           legend: {
-            labels: { color: this.getCssVariable('--chart-label') }
+            labels: { color: this.getChartLabelColor() }
           }
         },
         scales: {
           x: {
-            ticks: { color: this.getCssVariable('--chart-label') },
-            grid: { color: this.getCssVariable('--chart-grid') }
+            ticks: { color: this.getChartLabelColor() },
+            grid: { color: this.getChartGridColor() }
           },
           y: {
-            ticks: { color: this.getCssVariable('--chart-linea') },
-            grid: { color: this.getCssVariable('--chart-grid') }
+            ticks: { color: this.getChartLabelColor() },
+            grid: { color: this.getChartGridColor() }
           }
         }
       }
     });
   }
-  
-  updateChartColors() {
-      this.charts.forEach(chart => {
-        chart.data.datasets.forEach(dataset => {
-          dataset.borderColor = this.getCssVariable('--chart-linea');
-          dataset.backgroundColor = this.getCssVariable('--chart-fill');
-        });
-  
-        chart.options.plugins!.legend!.labels!.color = this.getCssVariable('--chart-label');
-        chart.options.scales!['x']!.ticks!.color = this.getCssVariable('--chart-label');
-        chart.options.scales!['x']!.grid!.color = this.getCssVariable('--chart-grid');
-        chart.options.scales!['y']!.ticks!.color = this.getCssVariable('--chart-label');
-        chart.options.scales!['y']!.grid!.color = this.getCssVariable('--chart-grid');
-  
-        chart.update();
-      });
-  }
-  
-  
-  
-  
 
-  getCssVariable(variable: string): string {
-    document.documentElement.style.display = "none";  // Ocultar temporalmente
-    document.documentElement.offsetHeight; // Forzar reflow
-    document.documentElement.style.display = ""; // Restaurar
-  
-    return window.getComputedStyle(document.documentElement).getPropertyValue(variable).trim();
+  updateChartColors() {
+    this.charts.forEach(chart => {
+      chart.data.datasets.forEach(dataset => {
+        dataset.borderColor = this.getChartColor();
+        dataset.backgroundColor = this.getChartFill();
+      });
+
+      chart.options.plugins!.legend!.labels!.color = this.getChartLabelColor();
+      chart.options.scales!['x']!.ticks!.color = this.getChartLabelColor();
+      chart.options.scales!['x']!.grid!.color = this.getChartGridColor();
+      chart.options.scales!['y']!.ticks!.color = this.getChartLabelColor();
+      chart.options.scales!['y']!.grid!.color = this.getChartGridColor();
+
+      chart.update();
+    });
   }
-  
-  
+
+  /** 🎨 Métodos que devuelven los colores dependiendo del modo oscuro o claro */
+  getChartColor(): string {
+    return this.darkModeService.isDark() ? '#00FFFF' : '#0A2740'; // Azul cyan (oscuro) / Azul oscuro (claro)
+  }
+
+  getChartFill(): string {
+    return this.darkModeService.isDark() ? 'rgba(0, 255, 255, 0.3)' : 'rgba(10, 39, 64, 0.3)'; // Transparencia
+  }
+
+  getChartLabelColor(): string {
+    return this.darkModeService.isDark() ? '#00FFFF' : '#0A2740';
+  }
+
+  getChartGridColor(): string {
+    return this.darkModeService.isDark() ? 'rgba(0, 255, 255, 0.2)' : 'rgba(10, 39, 64, 0.2)';
+  }
+
   updateCharts() {
     const newTimeLabel = this.getCurrentTime();
     this.labels.push(newTimeLabel);
@@ -167,7 +171,6 @@ export class EstadosPage implements AfterViewInit, OnDestroy {
 
   ngOnInit() {
     this.darkModeService.loadTheme();
-  
     this.darkModeService.darkMode$.subscribe(() => {
       this.updateChartColors();
     });

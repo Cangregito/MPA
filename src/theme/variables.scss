@@ -1,5 +1,5 @@
 :root {
-    --ion-color-primary: #0A2740;
+    --ion-color-primary: #0a2740;
     --ion-color-primary-degradado: linear-gradient(160deg, #0A2740 0%, #123456 100%);
     --ion-color-secondary: #ffffff;
     --ion-background-color: white;
@@ -8,8 +8,8 @@
     --details-login: #0A2740;
     --details-login-hover: #006bc8;
     --border-cards: transparent;
-    --border-chart: transparent;
-    --letra-cards: #0d47a1;
+    --border-chart: rgb(10, 39, 64);
+    --letra-cards: #0A2740;
     --tab-hover: rgba(255, 255, 255, 0.1);
     --tab-select: rgba(255, 255, 255, 0.2);
     --card-shadow: rgba(0, 0, 0, 0.15);
@@ -19,6 +19,7 @@
     --luces-border-on: #0A2740;
     --luces-border-off: #ffffff;
     --luces-shadow: rgba(0, 0, 0, 0.15);
+    --background-contrast: #f4f9fd;
 
     --chart-label: rgb(0, 128, 255);
     --chart-linea: rgb(0, 128, 255);
@@ -33,18 +34,19 @@
     --ion-text-color: white;
     --details-login: rgb(0, 229, 255);
     --details-login-hover:  rgb(0, 128, 143);
-    --border-cards: #007bff;
-    --border-chart: rgba(0, 123, 255, 0.629);
-    --letra-cards: #2196f3;
+    --border-cards: rgb(0, 229, 255);
+    --border-chart: rgba(0, 221, 255, 0.629);
+    --letra-cards: rgb(0, 229, 255);
     --ion-basic-text: white;
-    --tab-hover: rgb(0, 0, 255, 0.1);
-    --tab-select: rgba(0, 0, 255, 0.2);
-    --card-shadow: rgba(0, 0, 255, 0.15);
-    --card-hover-shadow: rgba(0, 94, 255, 0.2);
+    --tab-hover: rgba(0, 213, 255, 0.1);
+    --tab-select: rgba(0, 255, 251, 0.2);
+    --card-shadow: rgba(0, 200, 255, 0.15);
+    --card-hover-shadow: rgba(0, 234, 255, 0.2);
     --luces-on-background: #11181e;
     --luces-on-text: #ffffff;
     --luces-border-on: #ffffff;
     --luces-border-off: rgb(0, 229, 255);
     --luces-shadow: rgba(255, 255, 255, 0.25);
     --luces-shadow-dark: rgba(255, 255, 255, 1);
+    --background-contrast: #0a1621;
   }

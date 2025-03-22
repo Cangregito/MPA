@@ -1,13 +1,48 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>elevador</ion-title>
+  <ion-toolbar class="custom-header">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Control del Ascensor</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">elevador</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="elevator-container">
+    <!-- Ascensor 1 -->
+    <div class="elevator">
+      <div class="elevator-column">
+        <ion-icon src="assets/icon/elevator.svg" class="elevator-icon"></ion-icon>
+      </div>
+      <div class="elevator-info">
+        <div class="elevator-position">
+          <div class="floor" [class.active]="floor1">1</div>
+          <div class="floor" [class.active]="moving">..........</div>
+          <div class="floor" [class.active]="floor2">2</div>
+        </div>
+        <div class="elevator-door">
+          <div class="door" [class.active]="doorOpen">Abierta</div>
+          <div class="door" [class.active]="!doorOpen">Cerrada</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ascensor 2 -->
+    <div class="elevator">
+      <div class="elevator-column">
+        <ion-icon src="assets/icon/elevator.svg" class="elevator-icon"></ion-icon>
+      </div>
+      <div class="elevator-info">
+        <div class="elevator-position">
+          <div class="floor" [class.active]="floor1_2">1</div>
+          <div class="floor" [class.active]="moving_2">..........</div>
+          <div class="floor" [class.active]="floor2_2">2</div>
+        </div>
+        <div class="elevator-door">
+          <div class="door" [class.active]="doorOpen_2">Abierta</div>
+          <div class="door" [class.active]="!doorOpen_2">Cerrada</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </ion-content>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { DarkModeService } from '../services/dark-mode.service';
 
 @Component({
   selector: 'app-soporte',
@@ -48,7 +49,9 @@ export class SoportePage implements OnInit {
     }
   ];
 
-  constructor() {}
+constructor(private darkModeService: DarkModeService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.darkModeService.loadTheme(); 
+  }
 }

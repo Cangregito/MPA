@@ -41,7 +41,13 @@
             <ion-card-title>Escribe tu problema</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <ion-textarea rows="6" placeholder="Describe tu problema aquí..." [(ngModel)]="mensaje"></ion-textarea>
+            <ion-textarea rows="6"   
+                          aria-label="Custom input"
+                          label="Mensaje" 
+                          labelPlacement="floating" 
+                          placeholder="Describe tu problema aquí..." 
+                          [counter]="true" maxlength="500" 
+                          [(ngModel)]="mensaje"></ion-textarea>
             <ion-button expand="full" class="btn-send-message">Enviar Mensaje</ion-button>
           </ion-card-content>
         </ion-card>
@@ -71,15 +77,6 @@
               </ion-button>
               <ion-button fill="clear" class="contact-btn">
                 <ion-icon name="mail-outline"></ion-icon>
-              </ion-button>
-              <ion-button fill="clear" class="contact-btn">
-                <ion-icon name="logo-facebook"></ion-icon>
-              </ion-button>
-              <ion-button fill="clear" class="contact-btn">
-                <ion-icon name="logo-twitter"></ion-icon>
-              </ion-button>
-              <ion-button fill="clear" class="contact-btn">
-                <ion-icon name="globe-outline"></ion-icon>
               </ion-button>
             </div>
           </ion-card-content>

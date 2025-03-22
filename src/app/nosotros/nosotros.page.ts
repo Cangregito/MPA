@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
+import { DarkModeService } from '../services/dark-mode.service';
 
 @Component({
   selector: 'app-nosotros',
@@ -10,9 +11,10 @@ import { IonicModule } from '@ionic/angular';
 })
 export class NosotrosPage implements OnInit {
 
-  constructor() { }
+  constructor(private darkModeService: DarkModeService) {}
 
   ngOnInit() {
+    this.darkModeService.loadTheme();
   }
 
 }
