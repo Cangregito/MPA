@@ -3,22 +3,21 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
-    <ion-title>Control de Puertas</ion-title>
+    <ion-title>{{ translationService.getTranslation('CONTROL_PUERTAS') }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-
   <ion-grid>
     <ion-row>
       <!-- Puerta 1 -->
       <ion-col size="12" size-md="6">
         <ion-card [ngClass]="{ 'puerta-cerrada': puerta1, 'puerta-abierta': !puerta1 }">
           <ion-card-content class="card-content">
-            <h2>Puerta 1</h2>
+            <h2>{{ translationService.getTranslation('PUERTA_EDIFICIO_I') }}</h2>
             <ion-icon [name]="puerta1 ? 'lock-closed-outline' : 'lock-open-outline'"></ion-icon>
             <ion-button expand="full" (click)="togglePuerta(1)">
-              {{ puerta1 ? 'Abrir' : 'Cerrar' }}
+              {{ puerta1 ? translationService.getTranslation('ABRIR') : translationService.getTranslation('CERRAR') }}
             </ion-button>
           </ion-card-content>
         </ion-card>
@@ -28,10 +27,10 @@
       <ion-col size="12" size-md="6">
         <ion-card [ngClass]="{ 'puerta-cerrada': puerta2, 'puerta-abierta': !puerta2 }">
           <ion-card-content class="card-content">
-            <h2>Puerta 2</h2>
+            <h2>{{ translationService.getTranslation('PUERTA_EDIFICIO_I') }}</h2>
             <ion-icon [name]="puerta2 ? 'lock-closed-outline' : 'lock-open-outline'"></ion-icon>
             <ion-button expand="full" (click)="togglePuerta(2)">
-              {{ puerta2 ? 'Abrir' : 'Cerrar' }}
+              {{ puerta2 ? translationService.getTranslation('ABRIR') : translationService.getTranslation('CERRAR') }}
             </ion-button>
           </ion-card-content>
         </ion-card>

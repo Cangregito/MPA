@@ -1,52 +1,106 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router, NavigationEnd, RouterLink } from '@angular/router';
-import { IonicModule } from '@ionic/angular';
+import { TranslationService } from '../services/translation.service';
 import { DarkModeService } from '../services/dark-mode.service';
+import { IonicModule } from '@ionic/angular';
+import { FormsModule } from '@angular/forms';
+import { ChangeDetectorRef } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { AuthService } from '../services/auth.service';
+
 
 @Component({
   selector: 'app-tabs',
   templateUrl: './tabs.page.html',
   styleUrls: ['./tabs.page.scss'],
   standalone: true,
-  imports: [IonicModule, RouterLink]
+  imports: [RouterLink, IonicModule, FormsModule, CommonModule]
 })
-export class TabsPage {
-  pageTitle = 'MPA'; 
-  darkMode = false;
+export class TabsPage implements OnInit {
+  pageTitle: string = 'MPA';
+  darkMode: boolean = false;
+  selectedLanguage: string = 'es';
+  isTransparentHeader: boolean = false; 
+  isLanguageLoaded: boolean = false;
 
-  constructor(private router: Router, private darkModeService: DarkModeService) {
+  constructor(
+    private router: Router,
+    private darkModeService: DarkModeService,
+    public translationService: TranslationService,
+    private cdr: ChangeDetectorRef,
+    private authService: AuthService
+  ) {
+    this.translationService.language$.subscribe(() => {
+      this.selectedLanguage = this.translationService.getCurrentLanguage();
+      this.updatePageTitle();
+    });
+
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
+        this.updatePageTitle();
+      }
+    });
+  }
+  
 
-        document.body.classList.remove('dark-mode'); 
-        this.darkModeService.loadTheme(); 
-        this.darkMode = this.darkModeService.isDark();
+  
+  ngOnInit() {
+    this.darkModeService.loadTheme();
+    this.darkMode = this.darkModeService.isDark();
+    this.selectedLanguage = this.translationService.getCurrentLanguage();
 
-        // Establecer el título de la página según la ruta
-        if (event.url.includes('/tabs/inicio')) {
-          this.setTitle('Inicio');
-        } else if (event.url.includes('/tabs/parametros')) {
-          this.setTitle('Parámetros');
-        } else if (event.url.includes('/tabs/estados')) {
-          this.setTitle('Estados');
-        } else if (event.url.includes('/tabs/perfil')) {
-          this.setTitle('Perfil');
-        }
+    setTimeout(() => {
+      this.updatePageTitle();
+      this.cdr.detectChanges();
+    });
+
+    this.translationService.language$.subscribe(() => {
+      this.selectedLanguage = this.translationService.getCurrentLanguage();
+      this.updatePageTitle();
+    });
+
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.updatePageTitle();
       }
     });
   }
 
-  ngOnInit() {
-    this.darkModeService.loadTheme(); // Asegura que el tema se cargue al iniciar
-    this.darkMode = this.darkModeService.isDark(); // Actualizar el valor de darkMode
-  }
-
-  setTitle(title: string) {
-    this.pageTitle = title;
-  }
+  
 
   toggleDarkMode() {
-    this.darkModeService.toggleDarkMode(); // Cambiar entre modo oscuro y claro
-    this.darkMode = this.darkModeService.isDark(); // Actualizar el valor de darkMode después del cambio
+    this.darkModeService.toggleDarkMode();
+  }
+
+  changeLanguage(lang: string) {
+    this.translationService.setLanguage(lang);
+  }
+
+  updatePageTitle() {
+    if (this.router.url.includes('/tabs/inicio')) {
+      this.pageTitle = this.translationService.getTranslation('INICIO');
+      this.isTransparentHeader = false;
+    } else if (this.router.url.includes('/tabs/parametros')) {
+      this.pageTitle = this.translationService.getTranslation('PARAMETROS');
+      this.isTransparentHeader = false;
+    } else if (this.router.url.includes('/tabs/estados')) {
+      this.pageTitle = this.translationService.getTranslation('ESTADOS');
+      this.isTransparentHeader = false;
+    } else if (this.router.url.includes('/tabs/perfil')) {
+      this.pageTitle = "";
+      this.isTransparentHeader = true; 
+    }
+
+    this.cdr.detectChanges();
+  }
+
+  
+  async logout() {
+    try {
+      await this.authService.logout();
+      this.router.navigate(['/home']); // Redirigir al login después de cerrar sesión
+    } catch (error) {
+      console.error('Error al cerrar sesión:', error);
+    }
   }
 }

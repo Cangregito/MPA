@@ -10,29 +10,37 @@
   <ion-card class="ion-no-margin">
     <ion-card-content>
 
-      <form>
+      <form (submit)="register()">
         <div class="wrapform">
           <ion-item>
-            <ion-input type="text" name="name" placeholder="Nombre Completo">
+            <ion-input type="text" [(ngModel)]="name" name="name" placeholder="Nombre" required>
               <ion-icon name="person-outline"></ion-icon>
             </ion-input>
           </ion-item>
 
           <ion-item>
-            <ion-input type="text" name="email" placeholder="Email">
+            <ion-input type="text" [(ngModel)]="lastname" name="lastname" placeholder="Apellido" required>
+              <ion-icon name="person-outline"></ion-icon>
+            </ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="email" [(ngModel)]="email" name="email" placeholder="Email" required>
               <ion-icon name="mail-outline"></ion-icon>
             </ion-input>
           </ion-item>
 
           <ion-item>
-            <ion-input type="password" name="password" placeholder="Contraseña">
-              <ion-icon name="lock-closed"></ion-icon>
+            <ion-input type="password" [(ngModel)]="password" name="password" placeholder="Contraseña" required
+              minlength="6">
+              <ion-icon name="lock-closed-outline"></ion-icon>
             </ion-input>
           </ion-item>
 
           <ion-item>
-            <ion-input type="password" name="confirm_password" placeholder="Confirmar Contraseña">
-              <ion-icon name="lock-closed"></ion-icon>
+            <ion-input type="password" [(ngModel)]="confirmPassword" name="confirmPassword" placeholder="Confirmar Contraseña"
+              required>
+              <ion-icon name="lock-closed-outline"></ion-icon>
             </ion-input>
           </ion-item>
         </div>
@@ -40,25 +48,26 @@
         <div class="sign-btn-wrap">
           <ion-button shape="round" type="submit" fill="solid" class="sign-btn">Registrarse</ion-button>
         </div>
-
-        <div class="text-tag">
-          <span>Por redes sociales</span>
-        </div>
-
-        <div class="social-btns">
-          <ion-button fill="clear" class="facebookbtn ion-no-padding">
-            <ion-icon src="../../assets/icon/outlook.svg" class="custom-icon"></ion-icon>
-          </ion-button>
-          <ion-button fill="clear" class="googlebtn ion-no-padding">
-            <ion-icon src="../../assets/icon/gmail.svg" class="custom-icon"></ion-icon>
-          </ion-button>
-        </div>
       </form>
+
+      <div class="text-tag">
+        <span>Por redes sociales</span>
+      </div>
+
+      <div class="social-btns">
+        <ion-button fill="clear" class="microsoftbtn ion-no-padding" (click)="registerWithMicrosoft()">
+          <ion-icon src="../../assets/icon/outlook.svg" class="custom-icon"></ion-icon>
+        </ion-button>
+        
+        <ion-button fill="clear" class="googlebtn ion-no-padding" (click)="registerWithGoogle()">
+          <ion-icon src="../../assets/icon/gmail.svg" class="custom-icon"></ion-icon>
+        </ion-button>        
+      </div>
     </ion-card-content>
   </ion-card>
 
   <div class="ion-card-footer">
-    <span>Ya tienes cuenta?</span><ion-button fill="clear" routerLink="/home" class="btn-login ion-no-padding">Inicia
-      sesión</ion-button>
+    <span>¿Ya tienes cuenta?</span>
+    <ion-button fill="clear" routerLink="/home" class="btn-login ion-no-padding">Inicia sesión</ion-button>
   </div>
 </ion-content>

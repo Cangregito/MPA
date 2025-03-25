@@ -27,6 +27,13 @@
   }
 }
 
+.transparent-header {
+  --background: transparent !important;
+  --ion-background-color: transparent !important;
+  --ion-toolbar-background: transparent !important;
+  box-shadow: none !important;
+}  
+
 .custom-header {
   --background: var(--ion-color-primary); 
   --color: var(--ion-text-color);
@@ -34,6 +41,7 @@
 
   ion-menu-button {
     --color: var(ion-text-color);
+    margin-right: 10px;
   }
 }
 
@@ -134,6 +142,7 @@ ion-menu[side="end"] {
       }
     }
   }
+
 
   .logout-item {
     margin-top: 30px;

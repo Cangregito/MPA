@@ -3,8 +3,9 @@ import { IonicModule, ModalController, PopoverController } from '@ionic/angular'
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ModalContent } from './modal-content.component';
-import { DarkModeService } from '../services/dark-mode.service';
 import { MenuLucesComponent } from './menu-luces.component';
+import { TranslationService } from '../services/translation.service'; // Importar el servicio de traducción
+import { DarkModeService } from '../services/dark-mode.service';
 
 @Component({
   selector: 'app-luces',
@@ -17,26 +18,36 @@ export class LucesPage implements OnInit {
   private modalCtrl = inject(ModalController);
   private popoverCtrl = inject(PopoverController);
 
-  salones: string[] = [
-    'I-001', 'I-002', 'I-003', 'I-004',
-    'I-101', 'I-102', 'I-103', 'I-104',
-    'I-Pasillo 1', 'I-Pasillo 2', 'I-Exterior',
-    'H-001', 'H-002', 'H-003', 'H-004',
-    'H-101', 'H-102', 'H-103', 'H-104',
-    'H-Pasillo 1', 'H-Pasillo 2', 'H-Exterior'
+  // Lista de claves de traducción para los salones
+  salonesKeys: string[] = [
+    'SALON_I_001', 'SALON_I_002', 'SALON_I_003', 'SALON_I_004',
+    'SALON_I_101', 'SALON_I_102', 'SALON_I_103', 'SALON_I_104',
+    'SALON_I_PASILLO_1', 'SALON_I_PASILLO_2', 'SALON_I_EXTERIOR',
+    'SALON_H_001', 'SALON_H_002', 'SALON_H_003', 'SALON_H_004',
+    'SALON_H_101', 'SALON_H_102', 'SALON_H_103', 'SALON_H_104',
+    'SALON_H_PASILLO_1', 'SALON_H_PASILLO_2', 'SALON_H_EXTERIOR'
   ];
 
   estadoLuces: boolean[] = [];
 
-  constructor(private darkModeService: DarkModeService) {}
+  constructor(
+    private darkModeService: DarkModeService,
+    public translationService: TranslationService // Inyectar el servicio de traducción
+  ) {}
 
   ngOnInit() {
-    this.estadoLuces = new Array(this.salones.length).fill(false);
+    this.estadoLuces = new Array(this.salonesKeys.length).fill(false);
     this.darkModeService.loadTheme();
   }
 
+  // Método para obtener el nombre traducido de un salón
+  getSalonName(key: string): string {
+    return this.translationService.getTranslation(key);
+  }
+
   toggleLuz(index: number) {
-    console.log(`Luz en ${this.salones[index]}: ${this.estadoLuces[index] ? 'Encendida' : 'Apagada'}`);
+    const salon = this.getSalonName(this.salonesKeys[index]);
+    console.log(`Luz en ${salon}: ${this.estadoLuces[index] ? 'Encendida' : 'Apagada'}`);
   }
 
   async openMenu(event: Event) {
@@ -70,8 +81,8 @@ export class LucesPage implements OnInit {
   }
 
   toggleZone(zone: string) {
-    this.salones.forEach((salon, index) => {
-      if (salon.startsWith(zone) || salon.includes(zone)) {
+    this.salonesKeys.forEach((key, index) => {
+      if (key.startsWith(zone) || key.includes(zone)) {
         this.estadoLuces[index] = !this.estadoLuces[index];
       }
     });
@@ -79,14 +90,15 @@ export class LucesPage implements OnInit {
 
   toggleFloor(building: string, floor: string) {
     const floorPrefix = floor === 'baja' ? '00' : '10'; // Identifica los números de piso
-    this.salones.forEach((salon, index) => {
-      if (salon.startsWith(`${building}-${floorPrefix}`)) {
+    this.salonesKeys.forEach((key, index) => {
+      if (key.startsWith(`${building}-${floorPrefix}`)) {
         this.estadoLuces[index] = !this.estadoLuces[index];
       }
     });
   }
 
-  async openModal(salon: string) {
+  async openModal(key: string) {
+    const salon = this.getSalonName(key);
     const registros = this.generarRegistrosFicticios();
 
     const modal = await this.modalCtrl.create({

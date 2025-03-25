@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
-    <ion-title>Soporte Técnico</ion-title>
+    <ion-title>{{ translationService.getTranslation('SOPORTE_TECNICO') }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -15,16 +15,16 @@
       <ion-col size="12">
         <ion-card>
           <ion-card-header>
-            <ion-card-title>Problemas Frecuentes</ion-card-title>
+            <ion-card-title>{{ translationService.getTranslation('PROBLEMAS_FRECUENTES') }}</ion-card-title>
           </ion-card-header>
           <ion-card-content>
             <ion-accordion-group>
               <ion-accordion *ngFor="let problema of problemasFrecuentes">
                 <ion-item slot="header">
-                  <ion-label>{{ problema.titulo }}</ion-label>
+                  <ion-label>{{ getTranslation(problema.titulo) }}</ion-label>
                 </ion-item>
                 <div slot="content" class="solucion-texto">
-                  {{ problema.solucion }}
+                  {{ getTranslation(problema.solucion) }}
                 </div>
               </ion-accordion>
             </ion-accordion-group>
@@ -38,17 +38,17 @@
       <ion-col size="12">
         <ion-card>
           <ion-card-header>
-            <ion-card-title>Escribe tu problema</ion-card-title>
+            <ion-card-title>{{ translationService.getTranslation('ESCRIBE_PROBLEMA') }}</ion-card-title>
           </ion-card-header>
           <ion-card-content>
             <ion-textarea rows="6"   
                           aria-label="Custom input"
-                          label="Mensaje" 
+                          label="{{ getTranslation('ESCRIBE_PROBLEMA') }}" 
                           labelPlacement="floating" 
-                          placeholder="Describe tu problema aquí..." 
+                          placeholder="{{ getTranslation('DESCRIBE_PROBLEMA') }}" 
                           [counter]="true" maxlength="500" 
                           [(ngModel)]="mensaje"></ion-textarea>
-            <ion-button expand="full" class="btn-send-message">Enviar Mensaje</ion-button>
+            <ion-button expand="full" class="btn-send-message">{{translationService.getTranslation('ENVIAR_MENSAJE')}}</ion-button>
           </ion-card-content>
         </ion-card>
       </ion-col>
@@ -59,7 +59,7 @@
       <ion-col size="12">
         <ion-card>
           <ion-card-header>
-            <ion-card-title>Contacta por otros medios</ion-card-title>
+            <ion-card-title>{{ translationService.getTranslation('CONTACTA_OTROS_MEDIOS') }}</ion-card-title>
           </ion-card-header>
           <ion-card-content>
             <div class="contact-methods">

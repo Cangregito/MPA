@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
-    <ion-title>Control del Ascensor</ion-title>
+    <ion-title>{{ translationService.getTranslation('CONTROL_ASCENSOR') }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -12,6 +12,7 @@
     <!-- Ascensor 1 -->
     <div class="elevator">
       <div class="elevator-column">
+        <ion-label class="label-edificio">{{ translationService.getTranslation('EDIFICIO_I') }}</ion-label>
         <ion-icon src="assets/icon/elevator.svg" class="elevator-icon"></ion-icon>
       </div>
       <div class="elevator-info">
@@ -21,8 +22,8 @@
           <div class="floor" [class.active]="floor2">2</div>
         </div>
         <div class="elevator-door">
-          <div class="door" [class.active]="doorOpen">Abierta</div>
-          <div class="door" [class.active]="!doorOpen">Cerrada</div>
+          <div class="door" [class.active]="doorOpen">{{ translationService.getTranslation('PUERTA_ABIERTA') }}</div>
+          <div class="door" [class.active]="!doorOpen">{{ translationService.getTranslation('PUERTA_CERRADA') }}</div>
         </div>
       </div>
     </div>
@@ -30,6 +31,7 @@
     <!-- Ascensor 2 -->
     <div class="elevator">
       <div class="elevator-column">
+        <ion-label class="label-edificio">{{ translationService.getTranslation('EDIFICIO_H') }}</ion-label>
         <ion-icon src="assets/icon/elevator.svg" class="elevator-icon"></ion-icon>
       </div>
       <div class="elevator-info">
@@ -39,8 +41,8 @@
           <div class="floor" [class.active]="floor2_2">2</div>
         </div>
         <div class="elevator-door">
-          <div class="door" [class.active]="doorOpen_2">Abierta</div>
-          <div class="door" [class.active]="!doorOpen_2">Cerrada</div>
+          <div class="door" [class.active]="doorOpen_2">{{ translationService.getTranslation('PUERTA_ABIERTA') }}</div>
+          <div class="door" [class.active]="!doorOpen_2">{{ translationService.getTranslation('PUERTA_CERRADA') }}</div>
         </div>
       </div>
     </div>

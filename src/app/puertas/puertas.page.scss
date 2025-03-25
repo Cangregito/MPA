@@ -1,17 +1,20 @@
 .custom-header {
-    --background: #0d47a1;
+    --background: var(--ion-color-primary);
     --color: white;
     text-align: center;
   }
 .puerta-cerrada {
-    background-color: #0d47a1;
-    color: white;
+    background-color: var(--ion-background-wb);
+    border: 2px solid var(--details-login);
+    color: var(--luces-border-off);
+    border-radius: 15px;
   }
   
   .puerta-abierta {
-    background-color: white;
-    color: #0d47a1;
-    border: 2px solid #0d47a1;
+    background-color: var(--ion-background-color);
+    color: var(--luces-border-on);
+    border: 2px solid var(--luces-border-on);
+    border-radius: 15px;
   }
   
   .card-content {
@@ -48,13 +51,15 @@
     font-weight: bold;
   }
 .puerta-abierta ion-button::part(native) {
-    background-color: #0d47a1 !important;
+    background-color: var(--ion-background-wb) !important;
     color: white !important;
+    border: 2px solid white
 }
 
 .puerta-cerrada ion-button::part(native) {
-    background-color: white !important;
-    color: #0d47a1 !important;
+    background-color: var(--ion-background-color) !important;
+    color: var(--details-login) !important;
+    border: 2px solid var(--details-login);
 }
 
   

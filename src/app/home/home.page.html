@@ -1,8 +1,6 @@
 <ion-header>
   <ion-toolbar class="custom-header">
-    <ion-buttons slot="start">
-
-    </ion-buttons>
+    <ion-buttons slot="start"></ion-buttons>
     <ion-title>Bienvenido</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -10,30 +8,55 @@
 <ion-content>
   <ion-card class="ion-no-margin">
     <ion-card-content>
-
-      <form>
+      <form #loginForm="ngForm" (ngSubmit)="login()">
         <div class="wrapform">
+          <!-- Email -->
           <ion-item>
-            <ion-input type="text" name="email" placeholder="Email">
-              <ion-icon name="mail-outline"></ion-icon>
+            <ion-input 
+              type="email" 
+              [(ngModel)]="email" 
+              name="email" 
+              placeholder="Email" 
+              required
+              email
+              #emailInput="ngModel">
+              <ion-icon name="mail-outline" ></ion-icon>
             </ion-input>
           </ion-item>
+          <p class="error" *ngIf="emailInput.invalid && emailInput.touched">Correo inválido</p>
 
+          <!-- Contraseña -->
           <ion-item>
-            <ion-input type="password" name="password" placeholder="**************">
+            <ion-input 
+              type="password" 
+              [(ngModel)]="password" 
+              name="password" 
+              placeholder="**************" 
+              required
+              minlength="6"
+              #passwordInput="ngModel">
               <ion-icon name="lock-closed"></ion-icon>
             </ion-input>
           </ion-item>
+          <p class="error" *ngIf="passwordInput.invalid && passwordInput.touched">Debe tener al menos 6 caracteres</p>
+        </div>
 
-        </div>
         <div class="password_forgot">
-          <ion-button fill="clear" class="ion-no-padding">Olvidaste tu contraseña?</ion-button>
+          <ion-button fill="clear" class="ion-no-padding" (click)="resetPassword()">
+            ¿Olvidaste tu contraseña?
+          </ion-button>
         </div>
+        
+
         <div class="lgn-btn-wrap">
-          <ion-button shape="round" type="submit" fill="solid" routerLink="/tabs/inicio" class="lgn-btn">
+          <ion-button 
+            shape="round" 
+            type="submit" 
+            fill="solid" 
+            class="lgn-btn"
+            [disabled]="loginForm.invalid">
             Iniciar sesión
           </ion-button>
-
         </div>
 
         <div class="text-tag">
@@ -41,20 +64,20 @@
         </div>
 
         <div class="social-btns">
-          <ion-button fill="clear" class="facebookbtn ion-no-padding">
+          <ion-button fill="clear" class="microsoftbtn ion-no-padding" (click)="loginWithMicrosoft()">
             <ion-icon src="../../assets/icon/outlook.svg" class="custom-icon"></ion-icon>
           </ion-button>
-          <ion-button fill="clear" class="googlebtn ion-no-padding">
+
+          <ion-button fill="clear" class="googlebtn ion-no-padding" (click)="loginWithGoogle()">
             <ion-icon src="../../assets/icon/gmail.svg" class="custom-icon"></ion-icon>
           </ion-button>
         </div>
-
       </form>
     </ion-card-content>
   </ion-card>
 
   <div class="ion-card-footer">
-    <span>No tienes cuenta?</span><ion-button fill="clear" routerLink="/registro"
-      class="btn-login ion-no-padding">Regístrate</ion-button>
+    <span>No tienes cuenta?</span>
+    <ion-button fill="clear" routerLink="/registro" class="btn-login ion-no-padding">Regístrate</ion-button>
   </div>
 </ion-content>

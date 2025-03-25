@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { DarkModeService } from '../services/dark-mode.service';
+import { TranslationService } from '../services/translation.service';
 
 @Component({
   selector: 'app-elevador',
@@ -10,6 +11,8 @@ import { DarkModeService } from '../services/dark-mode.service';
   imports: [IonicModule]
 })
 export class ElevadorPage {
+
+  selectedLanguage: string = 'es';
 
   // Estado del ascensor 1
   floor1: boolean = true;  
@@ -23,11 +26,15 @@ export class ElevadorPage {
   moving_2: boolean = false;
   doorOpen_2: boolean = true; 
 
-  constructor(private darkModeService: DarkModeService) { }
+  constructor(
+    private darkModeService: DarkModeService, 
+    public translationService: TranslationService
+  ) { }
 
 
   ngOnInit() {
-    this.darkModeService.loadTheme(); 
+    this.darkModeService.loadTheme();
+    this.selectedLanguage = this.translationService.getCurrentLanguage();
   }
 
 

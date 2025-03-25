@@ -27,14 +27,21 @@
   }
   
   .elevator-column {
+    flex-direction: column;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 30%;
   }
+  .label-edificio{
+    font-size: 1.2rem;
+    color: var(--details-login);
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
   
   .elevator-icon {
-    font-size: 800%;
+    font-size: 140px;
     color: var(--details-login);
   }
   
@@ -56,7 +63,9 @@
   
   .floor,
   .door {
-    background: #ddd;
+    background: var(--ion-color-primary);
+    border: 2px solid var(--luces-border-off);
+    color: var(--luces-border-off);
     padding: 10px 15px;
     border-radius: 5px;
     font-weight: bold;
@@ -65,6 +74,7 @@
     justify-content: center;
     align-items: center;
   }
+
   .floor{
     width: 33%;
   }
@@ -73,23 +83,69 @@
   }
   
   .active {
-    background: var(--details-login);
-    color: var(--luces-off-text);
+    background: var(--luces-border-off);
+    color: var(--luces-border-on);
+    border: 2px solid var(--details-login);
   }
   
+
+  @media (max-width:1024px) {
+    .elevator {
+        padding: 16px;
+        width: 90%;
+        height: 200px;
+      }
+    .elevator-icon {
+      font-size: 100px;
+    }
+    .label-edificio{
+      font-size: 1.1rem;
+    }
+  }
 
   @media (max-width:768px) {
     .elevator {
         padding: 14px;
-        width: 90%;
-        height: 400px;
+        height: 270px;
       }
+    .elevator-icon {
+      font-size: 100px;
+    }
+    .label-edificio{
+      font-size: 1.1rem;
+    }
   }
 
   @media (max-width:480px) {
     .elevator {
         padding: 12px;
         width: 95%;
-        height: 200px;
+        height: 180px;
+      }
+      .label-edificio{
+        font-size: 0.9rem;
+      }
+      .elevator-icon {
+        font-size: 70px;
+      }
+      .floor, .door{
+        font-size: 0.8rem;
+      }
+  }
+
+  
+  @media (max-width:320px) {
+    .elevator {
+        height: 160px;
+        padding: 8px;
+      }
+      .label-edificio{
+        font-size: 0.8rem;
+      }
+      .elevator-icon {
+        font-size: 60px;
+      }
+      .floor, .door{
+        font-size: 0.7rem;
       }
   }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
+import { TranslationService } from '../services/translation.service'; 
+import { DarkModeService } from '../services/dark-mode.service';
 
 @Component({
   selector: 'app-puertas',
@@ -13,9 +15,14 @@ export class PuertasPage implements OnInit {
   puerta1: boolean = true; // true = cerrada, false = abierta
   puerta2: boolean = true; // true = cerrada, false = abierta
 
-  constructor() {}
+  constructor(
+    private darkModeService: DarkModeService,
+    public translationService: TranslationService 
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.darkModeService.loadTheme();
+  }
 
   togglePuerta(numero: number) {
     if (numero === 1) {

@@ -27,12 +27,14 @@ ion-row {
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0px 4px 12px var(--card-shadow);
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   text-align: center;
 
   &:hover {
     transform: scale(1.05);
     box-shadow: 0px 6px 16px var(--card-hover-shadow);
+    background-color: var(--background-contrast) ;
+
   }
 }
 

@@ -3,7 +3,9 @@
     --ion-color-primary-degradado: linear-gradient(160deg, #0A2740 0%, #123456 100%);
     --ion-color-secondary: #ffffff;
     --ion-background-color: white;
+    --ion-background-wb: #0a2740;
     --ion-text-color: white;
+    --button-color: black;
     --ion-basic-text: black;
     --details-login: #0A2740;
     --details-login-hover: #006bc8;
@@ -20,6 +22,11 @@
     --luces-border-off: #ffffff;
     --luces-shadow: rgba(0, 0, 0, 0.15);
     --background-contrast: #f4f9fd;
+    --hover: #006bc8;
+    --bg-track-checked: rgb(0, 97, 167);
+    --track-unchecked: rgb(0, 97, 167);
+    --track-checked: rgb(212, 237, 255);
+    --bg-red: #ffefef;
 
     --chart-label: rgb(0, 128, 255);
     --chart-linea: rgb(0, 128, 255);
@@ -30,9 +37,12 @@
   .dark-mode {
     --ion-color-primary: #11181e;
     --ion-background-color: #121212;
+    --ion-background-wb: #121212;
     --ion-color-primary-degradado: linear-gradient(160deg, #121212 0%, #232323 100%);
     --ion-text-color: white;
-    --details-login: rgb(0, 229, 255);
+    --ion-basic-text: white;
+    --button-color: white;
+    --details-login: #00e5ff;
     --details-login-hover:  rgb(0, 128, 143);
     --border-cards: rgb(0, 229, 255);
     --border-chart: rgba(0, 221, 255, 0.629);
@@ -49,4 +59,9 @@
     --luces-shadow: rgba(255, 255, 255, 0.25);
     --luces-shadow-dark: rgba(255, 255, 255, 1);
     --background-contrast: #0a1621;
+    --hover: rgb(157, 245, 255);
+    --bg-track-checked: white;
+    --track-checked: rgb(0, 229, 255);
+    --track-unchecked: white;
+    --bg-red: #100000;
   }

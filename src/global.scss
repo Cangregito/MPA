@@ -25,4 +25,6 @@
 @import "@ionic/angular/css/text-transformation.css";
 
 
-
+ion-action-sheet {
+    --button-color: var(--ion-basic-text) !important;
+  }

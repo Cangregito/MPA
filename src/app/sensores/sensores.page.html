@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
-    <ion-title>Estado de sensores</ion-title>
+    <ion-title>{{ translationService.getTranslation('ESTADO_SENSORES') }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -23,15 +23,17 @@
             <ion-card-title           
               [class.title-active]="sensor.status === 'active'"
               [class.title-warning]="sensor.status === 'disconnected'">
-              {{ sensor.name }}
+              {{ getSensorName(sensor.key) }} <!-- Usar el método para obtener el nombre traducido -->
             </ion-card-title>
 
           </ion-card-header>
 
           <ion-card-content>
-            <p *ngIf="sensor.status === 'active'" class="active-text">El sensor está funcionando correctamente.</p>
+            <p *ngIf="sensor.status === 'active'" class="active-text">
+              {{ translationService.getTranslation('SENSOR_ACTIVO') }}
+            </p>
             <p *ngIf="sensor.status === 'disconnected'" class="disconnected-text">
-              El sensor está desconectado o ha dejado de funcionar, verifique la conexión o reemplácelo.
+              {{ translationService.getTranslation('SENSOR_DESCONECTADO') }}
             </p>
           </ion-card-content>
         </ion-card>

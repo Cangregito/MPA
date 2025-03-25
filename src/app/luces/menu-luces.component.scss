@@ -1,23 +1,25 @@
 ion-list {
-    background: white;
+    background: var(--ion-background-color);
     border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 4px 10px var(--card-hover-shadow);
     padding: 10px;
   }
   
   ion-item {
     font-size: 16px;
-    color: #333;
-    --background: transparent;
-    --ripple-color: rgba(0, 0, 0, 0.1);
+    color: var(--details-login);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    --color-hover: none;
   
     &:last-child {
       border-bottom: none;
     }
   
     &:hover {
-      background: rgba(0, 0, 0, 0.05);
+      background: var(--background-contrast);
+      color: var(--hover) !important;
+      transform: translateX(3px);
     }
   }
   
