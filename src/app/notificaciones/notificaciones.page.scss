@@ -1,0 +1,54 @@
+.custom-header {
+    --background: var(--ion-color-primary) !important;
+    color: white;
+    text-align: center;
+}
+
+.notification-card {
+    width: 100%;
+    margin: 10px 0;
+    border-left: 5px solid var(--details-login);
+    transition: all 0.3s ease-in-out;
+    --background: var(--background-contrast) !important; 
+    
+    &:hover {
+      transform: scale(1.02);
+      --background: var(--hover) !important; 
+      
+      .notification-icon {
+        color: white;
+      }
+
+      ion-item {
+        --background: var(--hover) !important; 
+      }
+      .notification-title {
+        font-size: 18px;
+        font-weight: bold;
+        color: var(--details-login);
+      } 
+    }
+}
+
+ion-item{
+    --background: var(--background-contrast) !important;
+    transition: all 0.3s ease-in-out;
+}
+  
+  .notification-icon {
+    color: var(--details-login);
+    font-size: 24px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .notification-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--details-login);
+  }
+  
+  .notification-message {
+    font-size: 14px;
+    color: var(--hover);
+  }
+  

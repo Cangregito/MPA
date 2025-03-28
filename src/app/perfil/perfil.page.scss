@@ -4,19 +4,16 @@
 }
 
 .profile-options ion-item:hover {
-  background: linear-gradient(90deg, rgba(10,39,64,0.6) 0%, rgba(16,64,96,0.4) 100%) !important;
+  background: linear-gradient(90deg, rgba(10,39,64,0.3) 0%, rgba(0, 153, 255, 0.2) 100%) !important;
   transform: translateX(15px);
-  border-left: 4px solid #3498db;
+  border-left: 4px solid var(--hover);
   box-shadow: -4px 0 12px rgba(52, 152, 219, 0.2);
 }
-ion-content {
-  --ion-background-color: #f8f9fa !important;
-}
 
-.custom-header {
-  --background: #0A2740; /* Azul oscuro */
-  --color: white;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+ion-content{
+  display: flex !important;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .profile-header {
@@ -24,31 +21,25 @@ ion-content {
   flex-direction: column;
   align-items: center;
   padding: 2rem 0;
-  background: linear-gradient(45deg, #2c3e50 30%, #3498db 100%);
+  background: linear-gradient(45deg, var(--ion-color-primary) 30%, var(--hover) 100%);
   margin-bottom: 2rem;
-  position: relative;
-  overflow: hidden;
 }
 
 .profile-header::after {
   content: '';
-  position: absolute;
-  bottom: -20px;
-  left: 0;
+  margin-top: 10px;
   width: 100%;
   height: 40px;
-  background: #f8f9fa;
+  background:var(--after);
   transform: skewY(-3deg);
-  z-index: 1;
 }
 
 .profile-picture {
   width: 140px;
   height: 140px;
-  border: 4px solid white;
+  border: 4px solid var(--ion-background-color);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
-  z-index: 2;
 }
 
 .profile-picture:hover {
@@ -57,44 +48,29 @@ ion-content {
 
 .edit-btn {
   margin-top: 1.5rem;
-  --border-color: rgba(255, 255, 255, 0.5);
+  --border-color: white;
   --color: white;
   --border-width: 2px;
   font-weight: 500;
   letter-spacing: 0.5px;
-  z-index: 2;
 }
 
 .profile-info {
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--background-contrast);
   border-radius: 16px;
-  padding: 2rem;
-  margin: -4rem auto 2rem;
+  padding: 2rem !important;
+  margin-top: 50px !important; 
   max-width: 600px;
   box-shadow: 0 8px 32px rgba(10, 39, 64, 0.1);
-  position: relative;
-  z-index: 3;
 }
 
 .profile-name {
-  color: #0A2740;
+  color: var(--details-login);
+  display: flex;
+  align-self: center;
   font-size: 2.4rem;
   font-weight: 700;
-  margin-bottom: 1.5rem;
-  position: relative;
-  padding-bottom: 1rem;
-}
-
-.profile-name::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 3px;
-  background: linear-gradient(90deg, #3498db 0%, #2c3e50 100%);
-  border-radius: 2px;
+  height: 60px;
 }
 
 .info-item {
@@ -109,18 +85,18 @@ ion-content {
 
 .info-item:hover {
   transform: translateX(10px);
-  background: rgba(16, 64, 96, 0.1);
+  background-color: rgba(121, 121, 121, 0.2);
 }
 
 .info-icon {
   font-size: 1.8rem;
-  color: #3498db;
+  color: var(--details-login);
   margin-right: 1.5rem;
   min-width: 35px;
 }
 
 .info-content {
-  color: #2c3e50;
+  color: var(--details-login);
   font-size: 1.1rem;
   margin: 0;
   line-height: 1.6;
@@ -128,7 +104,7 @@ ion-content {
 
 .info-sub {
   display: block;
-  color: #7f8c8d;
+  color: var(--hover);
   font-size: 0.95rem;
   margin-top: 0.3rem;
   font-style: italic;
@@ -153,8 +129,7 @@ ion-content {
   }
 }
 .profile-options {
-  --background: #0A2740; /* Fondo azul oscuro */
-  background: #0A2740;
+  background: var(--background-contrast);
   border-radius: 12px;
   margin: 2rem auto;
   max-width: 800px;
@@ -163,26 +138,26 @@ ion-content {
 
 .profile-options ion-item {
   --background: transparent;
-  --color: #ecf0f1; /* Texto claro */
-  --border-color: rgba(255, 255, 255, 0.1); /* Borde sutil */
+  --color: var(--details-login); 
+  --border-color: rgba(255, 255, 255, 0.1); 
   --padding-start: 1.5rem;
   --padding-end: 1.5rem;
   --min-height: 60px;
 }
 
 .profile-options ion-icon {
-  color: #3498db; /* Azul claro para iconos */
-  filter: brightness(1.2); /* Mejor contraste */
+  color: var(--details-login); 
+  filter: brightness(1.2); 
 }
 
 .profile-options ion-button {
-  --color: #ffffff; /* Botones en blanco */
+  --color: var(--details-login); 
 }
 
 .profile-options ion-toggle {
-  --background: #1a3a5a; /* Fondo del toggle */
-  --background-checked: #3498db; /* Toggle activo */
-  --handle-background: #ffffff; /* Control deslizante */
+  --background: var(--background-contrast); 
+  --background-checked: var(--details-login);
+  --handle-background: #ffffff; 
 }
 
 
@@ -202,6 +177,13 @@ ion-content {
   --background: #c0392b;
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(231, 76, 60, 0.25);
+}
+
+ion-toggle{
+  --track-background: var(--luces-border-off);
+  --track-background-checked: var(--bg-track-checked);
+  --handle-background: var(--track-unchecked);
+  --handle-background-checked: var(--track-checked);
 }
 
 /* Responsive */

@@ -103,4 +103,5 @@ export class TabsPage implements OnInit {
       console.error('Error al cerrar sesión:', error);
     }
   }
+  
 }

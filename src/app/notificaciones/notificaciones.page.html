@@ -1,13 +1,26 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>notificaciones</ion-title>
+  <ion-toolbar class="custom-header">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Notificaciones</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">notificaciones</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row >
+      <ion-col *ngFor="let notificacion of notificaciones" size-xs="12" size-sm="12" size-md="12" size-lg="6" size-xs="6">
+        <ion-card class="notification-card">
+          <ion-item lines="none">
+            <ion-icon [name]="notificacion.icono" slot="start" class="notification-icon"></ion-icon>
+            <ion-label>
+              <h2 class="notification-title">{{ notificacion.titulo }}</h2>
+              <p class="notification-message">{{ notificacion.mensaje }}</p>
+            </ion-label>
+          </ion-item>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

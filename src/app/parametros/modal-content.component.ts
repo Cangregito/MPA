@@ -17,7 +17,7 @@ import { CommonModule } from '@angular/common';
 
     <ion-content>
       <p class="modal-value">Valor actual: {{ value }}</p>
-      <table>
+      <table *ngIf="data.length > 0; else noData">
         <thead>
           <tr>
             <th>#</th>
@@ -35,6 +35,9 @@ import { CommonModule } from '@angular/common';
           </tr>
         </tbody>
       </table>
+      <ng-template #noData>
+        <p>No hay datos disponibles.</p>
+      </ng-template>
     </ion-content>
   `,
   standalone: true,

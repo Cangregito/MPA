@@ -1,31 +1,31 @@
 <ion-header>
-    <ion-toolbar>
-      <ion-title>{{ title }}</ion-title>
-      <ion-buttons slot="end">
-        <ion-button (click)="closeModal()">Cerrar</ion-button>
-      </ion-buttons>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content>
-    <p class="modal-value">Valor actual: {{ value }}</p>
-    <table>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Fecha</th>
-          <th>Hora</th>
-          <th>Valor</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let record of data; let i = index">
-          <td>{{ i + 1 }}</td>
-          <td>{{ record.fecha }}</td>
-          <td>{{ record.hora }}</td>
-          <td>{{ record.valor }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </ion-content>
-  
+  <ion-toolbar>
+    <ion-title>{{ title }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <p class="modal-value">Valor actual: {{ value }}</p>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Fecha</th>
+        <th>Hora</th>
+        <th>Valor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let record of data; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ record.fecha }}</td>
+        <td>{{ record.hora }}</td>
+        <td>{{ record.valor }}</td>
+      </tr>
+    </tbody>
+  </table>
+</ion-content>
+`

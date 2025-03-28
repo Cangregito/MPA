@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { DarkModeService } from '../services/dark-mode.service';
 
 @Component({
   selector: 'app-home',
@@ -14,11 +15,14 @@ export class HomePage {
   password: string = '';
 
   constructor(
+    private darkModeService: DarkModeService,
     private authService: AuthService,
     private router: Router,
     private alertController: AlertController 
   ) {}
-
+  ngOnInit() {
+    this.darkModeService.loadTheme();
+  }
   async showAlert(header: string, message: string) {
     const alert = await this.alertController.create({
       header,
@@ -65,7 +69,6 @@ export class HomePage {
     }
   }
 
-  // ✅ LOGIN con Google
   async loginWithGoogle() {
     try {
       const user = await this.authService.loginWithGoogle();
@@ -77,7 +80,6 @@ export class HomePage {
     }
   }
 
-  // ✅ LOGIN con Microsoft
   async loginWithMicrosoft() {
     try {
       const user = await this.authService.loginWithMicrosoft();
