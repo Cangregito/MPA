@@ -27,8 +27,6 @@ export class PuertasPage implements OnInit {
   togglePuerta(numero: number) {
     if (numero === 1) {
       this.puerta1 = !this.puerta1;
-    } else if (numero === 2) {
-      this.puerta2 = !this.puerta2;
-    }
+    } 
   }
 }

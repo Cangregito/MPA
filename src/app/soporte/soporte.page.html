@@ -33,7 +33,6 @@
       </ion-col>
     </ion-row>
 
-    <!-- Escribir Mensaje -->
     <ion-row>
       <ion-col size="12">
         <ion-card>
@@ -41,14 +40,13 @@
             <ion-card-title>{{ translationService.getTranslation('ESCRIBE_PROBLEMA') }}</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <ion-textarea rows="6"   
-                          aria-label="Custom input"
-                          label="{{ getTranslation('ESCRIBE_PROBLEMA') }}" 
-                          labelPlacement="floating" 
-                          placeholder="{{ getTranslation('DESCRIBE_PROBLEMA') }}" 
-                          [counter]="true" maxlength="500" 
-                          [(ngModel)]="mensaje"></ion-textarea>
-            <ion-button expand="full" class="btn-send-message">{{translationService.getTranslation('ENVIAR_MENSAJE')}}</ion-button>
+            <ion-textarea rows="6" aria-label="Custom input" label="{{ getTranslation('ESCRIBE_PROBLEMA') }}"
+              labelPlacement="floating" placeholder="{{ getTranslation('DESCRIBE_PROBLEMA') }}" [counter]="true"
+              maxlength="500" [(ngModel)]="mensaje"></ion-textarea>
+            
+            <ion-button expand="full" class="btn-send-message" (click)="enviarCorreo()">
+              {{ translationService.getTranslation('ENVIAR_MENSAJE') }}
+            </ion-button>
           </ion-card-content>
         </ion-card>
       </ion-col>
@@ -63,19 +61,13 @@
           </ion-card-header>
           <ion-card-content>
             <div class="contact-methods">
-              <ion-button fill="clear" class="contact-btn">
-                <ion-icon name="logo-whatsapp"></ion-icon>
-              </ion-button>
-              <ion-button fill="clear" class="contact-btn">
-                <ion-icon name="paper-plane-outline"></ion-icon>
-              </ion-button>
-              <ion-button fill="clear" class="contact-btn">
+              <!-- Botón de llamada -->
+              <ion-button fill="clear" class="contact-btn" href="tel:+526561997138">
                 <ion-icon name="call-outline"></ion-icon>
               </ion-button>
-              <ion-button fill="clear" class="contact-btn">
-                <ion-icon name="chatbubble-outline"></ion-icon>
-              </ion-button>
-              <ion-button fill="clear" class="contact-btn">
+              <!-- Botón de correo -->
+              <ion-button fill="clear" class="contact-btn"
+                href="mailto:mpa@outlock.com?subject=Consulta&body=Hola, quisiera más información.">
                 <ion-icon name="mail-outline"></ion-icon>
               </ion-button>
             </div>
@@ -83,5 +75,6 @@
         </ion-card>
       </ion-col>
     </ion-row>
+
   </ion-grid>
 </ion-content>

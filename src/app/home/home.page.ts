@@ -80,17 +80,6 @@ export class HomePage {
     }
   }
 
-  async loginWithMicrosoft() {
-    try {
-      const user = await this.authService.loginWithMicrosoft();
-      console.log('Inicio de sesión con Microsoft:', user);
-      this.router.navigate(['/tabs/inicio']);
-    } catch (error) {
-      console.error('Error con Microsoft:', error);
-      this.showAlert('Error', 'No se pudo iniciar sesión con Microsoft.');
-    }
-  }
-
   async resetPassword() {
     if (!this.email) {
       this.showAlert('Error', 'Por favor, ingresa tu correo electrónico.');

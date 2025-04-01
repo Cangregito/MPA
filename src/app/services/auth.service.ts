@@ -80,4 +80,20 @@ export class AuthService {
       throw error;
     }
   }
+
+  async getUserData() {
+    const user = this.auth.currentUser;
+    if (!user) return null;
+  
+    const userRef = doc(this.db, "users", user.uid);
+    const userDoc = await getDoc(userRef);
+  
+    if (userDoc.exists()) {
+      return userDoc.data();
+    } else {
+      console.warn('⚠️ No se encontraron datos para este usuario en Firestore.');
+      return null;
+    }
+  }
+  
 }

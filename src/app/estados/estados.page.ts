@@ -4,6 +4,7 @@ import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { DarkModeService } from '../services/dark-mode.service';
 import { Subscription } from 'rxjs';
+import { SensorDataService } from '../services/sensor-data.service';
 
 @Component({
   selector: 'app-estados',
@@ -19,30 +20,59 @@ export class EstadosPage implements AfterViewInit, OnDestroy {
   private themeSubscription!: Subscription;
 
   sensores = [
-    'Temperatura (°C)', 'Humedad (%)', 'Nivel de Luz (Lux)', 'Presión Atmosférica (hPa)',
-    'Distancia (cm)', 'Ruido (dB)', 'Gas MQ2 (%)', 'Vibración (G)', 'Consumo de Energía (W)', 'Nivel de Agua (%)'
+    { key: 'TEMPERATURA_I_001', edificio: 'I' , parametro: 'temperatura', valor: 'N/A' },
+    { key: 'HUMEDAD_I_001', edificio: 'I', parametro: 'humedad', valor: 'N/A' },
+    { key: 'RUIDO_I_002', edificio: 'I', parametro: 'sonido', valor: 'N/A' },
+    { key: 'METANO_GAS_I_101', edificio: 'I', parametro: 'gas_metano', valor: 'N/A' },
+    { key: 'MONOXIDO_CARBONO_I_102', edificio: 'I' , parametro: 'gas_co', valor: 'N/A' },
+    { key: 'DIOXIDO_CARBONO_I_103', edificio: 'I' , parametro: 'temperatura', valor: 'N/A' },
+    { key: 'HUMO_I_104', edificio: 'I', parametro: 'humo', valor: 'N/A' },
+    { key: 'CALIDAD_AIRE', edificio: 'I', parametro: 'calidad_aire', valor: 'N/A' },
+    { key: 'TEMPERATURA_H_001', edificio: 'H', parametro: 'temperatura', valor: 'N/A' },
+    { key: 'HUMEDAD_H_001', edificio: 'H', parametro: 'humedad', valor: 'N/A' },
+    { key: 'TERREMOTO_H_002', edificio: 'H', parametro: 'vibracion', valor: 'N/A' },
+    { key: 'HUMO_H_004', edificio: 'H', parametro: 'humo', valor: 'N/A' },
+    { key: 'RUIDO_H_101', edificio: 'H', parametro: 'sonido', valor: 'N/A' },
+    { key: 'PRESION_H_104', edificio: 'H', parametro: 'presion', valor: 'N/A' },
+    { key: 'LUZ_H_101', edificio: 'H', parametro: 'luz', valor: 'N/A' },
   ];
 
-  constructor(private cdRef: ChangeDetectorRef, private darkModeService: DarkModeService) {}
-
+  constructor(private cdRef: ChangeDetectorRef, private darkModeService: DarkModeService,    private sensorDataService: SensorDataService
+  ) {}
   ngAfterViewInit() {
     setTimeout(() => {
       this.cdRef.detectChanges();
+  
       this.chartCanvas.forEach((canvas, index) => {
-        if (canvas.nativeElement) {
+        if (canvas?.nativeElement) {
           this.createChart(canvas.nativeElement, index);
         }
       });
-
+  
+      this.fetchLatestData();
+  
       setInterval(() => {
-        this.updateCharts();
+        this.fetchLatestData(); 
       }, 5000);
     }, 500);
-
+  
+    // Suscribirse a cambios en el tema oscuro
     this.themeSubscription = this.darkModeService.darkMode$.subscribe(() => {
       this.updateChartColors();
     });
   }
+  
+  fetchLatestData() {
+    this.sensorDataService.getLatestData().subscribe(
+      (data) => {
+        console.log("📡 Datos recibidos del servidor:", data);
+        this.updateCharts(data);  // 🔥 Actualizar los gráficos con los datos reales
+      },
+      (error) => console.error('Error obteniendo datos:', error)
+    );
+  }
+  
+
 
   ngOnDestroy() {
     if (this.themeSubscription) {
@@ -57,10 +87,10 @@ export class EstadosPage implements AfterViewInit, OnDestroy {
       data: {
         labels: [...this.labels],
         datasets: [{
-          label: this.sensores[index],
+          label: this.sensores[index].parametro,
           data: this.getRandomData(index),
-          borderColor: this.getChartColor(), // Cambia según el modo
-          backgroundColor: this.getChartFill(), // Cambia según el modo
+          borderColor: this.getChartColor(), 
+          backgroundColor: this.getChartFill(), 
           borderWidth: 2,
           fill: true
         }]
@@ -121,29 +151,56 @@ export class EstadosPage implements AfterViewInit, OnDestroy {
     return this.darkModeService.isDark() ? 'rgba(0, 255, 255, 0.2)' : 'rgba(10, 39, 64, 0.2)';
   }
 
-  updateCharts() {
+  updateCharts(sensorData: any) {
     const newTimeLabel = this.getCurrentTime();
     this.labels.push(newTimeLabel);
     if (this.labels.length > 7) {
       this.labels.shift();
     }
-
+  
     this.charts.forEach((chart, index) => {
       chart.data.labels = [...this.labels];
-
+  
+      // Obtener la clave del sensor correspondiente al gráfico
+      const sensorKey = this.sensores[index].key;
+  
+      // Buscar el dato correspondiente en la última data recibida
+      let newValue;
+      switch (sensorKey) {
+        case 'TEMPERATURA_I_001': newValue = sensorData.temperatura_i; break;
+        case 'HUMEDAD_I_001': newValue = sensorData.humedad_i; break;
+        case 'RUIDO_I_002': newValue = sensorData.sonido_i; break;
+        case 'METANO_GAS_I_101': newValue = sensorData.metano_i; break;
+        case 'MONOXIDO_CARBONO_I_102': newValue = sensorData.monoxido_carbono_i; break;
+        case 'DIOXIDO_CARBONO_I_103': newValue = sensorData.dioxido_carbono_i; break;
+        case 'HUMO_I_104': newValue = sensorData.humo_i; break;
+        case 'CALIDAD_AIRE': newValue = sensorData.calidad_aire; break;
+        case 'TEMPERATURA_H_001': newValue = sensorData.temperatura_h; break;
+        case 'HUMEDAD_H_001': newValue = sensorData.humedad_h; break;
+        case 'RUIDO_H_101': newValue = sensorData.sonido_h; break;
+        case 'PRESION_H_104': newValue = sensorData.presion_h; break;
+        case 'HUMO_H_004': newValue = sensorData.humo_h; break;
+        case 'LUZ_H_101': newValue = sensorData.luz_h; break;
+        default: newValue = null;
+      }
+  
+      // Si el valor es null o undefined, usa un valor por defecto o el último registrado
+      newValue = newValue !== null && newValue !== undefined ? newValue : this.getRandomValue(index);
+  
       chart.data.datasets.forEach(dataset => {
-        dataset.data.push(this.getRandomValue(index));
+        dataset.data.push(newValue);
         if (dataset.data.length > 7) {
           dataset.data.shift();
         }
       });
-
+  
       chart.update();
     });
   }
+  
 
   getRandomData(index: number) {
-    return Array.from({ length: 7 }, () => this.getRandomValue(index));
+    return Array(7).fill(0);
   }
 
   getRandomValue(index: number): number {

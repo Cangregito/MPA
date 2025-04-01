@@ -32,13 +32,13 @@ export class ParametrosPage {
     { key: 'HUMO_I_104', icono: 'flame-outline', edificio: 'I', parametro: 'humo', valor: 'N/A' },
     { key: 'CALIDAD_AIRE', icono: 'partly-sunny-outline', edificio: 'I', parametro: 'calidad_aire', valor: 'N/A' },
     { key: 'TEMPERATURA_H_001', icono: 'thermometer-outline', edificio: 'H', parametro: 'temperatura', valor: 'N/A' },
-    { key: 'HUMEDAD_H_OO1', icono: 'water-outline', edificio: 'H', parametro: 'humedad', valor: 'N/A' },
+    { key: 'HUMEDAD_H_001', icono: 'water-outline', edificio: 'H', parametro: 'humedad', valor: 'N/A' },
     { key: 'TERREMOTO_H_002', icono: 'pulse-outline', edificio: 'H', parametro: 'vibracion', valor: 'N/A' },
     { key: 'HUMO_H_004', icono: 'flame-outline', edificio: 'H', parametro: 'humo', valor: 'N/A' },
     { key: 'RUIDO_H_101', icono: 'volume-high-outline', edificio: 'H', parametro: 'sonido', valor: 'N/A' },
     { key: 'INCENDIO_H_102', icono: 'bonfire-outline', edificio: 'H', parametro: 'fuego', valor: 'N/A' },
-    { key: 'RFID_H_103', icono: 'key-outline', edificio: 'H', parametro: 'rfid', valor: 'N/A' },
-    { key: 'PRESION_H_104', icono: 'speedometer-outline', edificio: 'H', parametro: 'presion', valor: 'N/A' }
+    { key: 'PRESION_H_104', icono: 'speedometer-outline', edificio: 'H', parametro: 'presion', valor: 'N/A' },
+    { key: 'LUZ_H_101', icono: 'sunny-outline', edificio: 'H', parametro: 'luz', valor: 'N/A' },
   ];
 
   private interval: any;
@@ -69,8 +69,8 @@ export class ParametrosPage {
   fetchLatestData() {
     this.sensorDataService.getLatestData().subscribe(
       (data) => {
-        console.log("📡 Datos recibidos del servidor:", data); // Para depuración
-  
+        console.log("📡 Datos recibidos del servidor:", data); 
+        
         this.sensoresList.forEach(sensor => {
           const key = sensor.key;
   
@@ -86,10 +86,10 @@ export class ParametrosPage {
               sensor.valor = (data.sonido_i !== null && data.sonido_i !== undefined) ? `${data.sonido_i} dB` : 'N/A';
               break;
             case 'INCENDIO_I_004':
-              sensor.valor = data.incendio_i ? '🔥 Detectado' : '✅ Seguro';
+              sensor.valor = data.fuego_i ? '🔥 Detectado' : '✅ Seguro';
               break;
             case 'METANO_GAS_I_101':
-              sensor.valor = (data.gas_metano_i !== null && data.gas_metano_i !== undefined) ? `${data.gas_metano_i} ppm` : 'N/A';
+              sensor.valor = (data.metano_i !== null && data.metano_i !== undefined) ? `${data.metano_i} ppm` : 'N/A';
               break;
             case 'MONOXIDO_CARBONO_I_102':
               sensor.valor = (data.monoxido_carbono_i !== null && data.monoxido_carbono_i !== undefined) ? `${data.monoxido_carbono_i} ppm` : 'N/A';
@@ -108,26 +108,29 @@ export class ParametrosPage {
             case 'TEMPERATURA_H_001':
               sensor.valor = (data.temperatura_h !== null && data.temperatura_h !== undefined) ? `${data.temperatura_h}°C` : 'N/A';
               break;
-            case 'HUMEDAD_H_004':
+            case 'HUMEDAD_H_001':
               sensor.valor = (data.humedad_h !== null && data.humedad_h !== undefined) ? `${data.humedad_h}%` : 'N/A';
               break;
             case 'RUIDO_H_101':
               sensor.valor = (data.sonido_h !== null && data.sonido_h !== undefined) ? `${data.sonido_h} dB` : 'N/A';
               break;
             case 'INCENDIO_H_102':
-              sensor.valor = data.incendio_h ? '🔥 Detectado' : '✅ Seguro';
+              sensor.valor = data.fuego_h ? '🔥 Detectado' : '✅ Seguro';
               break;
-            case 'RFID_H_103':
-              sensor.valor = (data.rfid_h !== null && data.rfid_h !== undefined) ? `🔓 ${data.rfid_h} accesos` : '🔒 Sin acceso';
+            case 'LUZ_H_103':
+              sensor.valor = (data.luz_h !== null && data.luz_h !== undefined) ? `🔓 ${data.luz} accesos` : '🔒 Sin acceso';
               break;
             case 'TERREMOTO_H_002':
-              sensor.valor = data.terremoto_h ? '⚠️ Detectado' : '✅ Estable';
+              sensor.valor = data.vibracion_h ? '🔥 Detectado' : '✅ Seguro';
               break;
             case 'PRESION_H_104':
               sensor.valor = (data.presion_h !== null && data.presion_h !== undefined) ? `${data.presion_h} hPa` : 'N/A';
               break;
             case 'HUMO_H_004':
               sensor.valor = (data.humo_h !== null && data.humo_h !== undefined) ? `${data.humo_h} ppm` : 'N/A';
+              break;
+            case 'LUZ_H_101':
+              sensor.valor = (data.luz_h !== null && data.luz_h !== undefined) ? `${data.luz_h}` : 'N/A';
               break;
           }
         });
@@ -139,8 +142,8 @@ export class ParametrosPage {
 
   async openModal(sensorKey: string, edificio: string) {
     const sensorName = this.getSensorName(sensorKey);
-    this.modalTitle = `${sensorName} - ${edificio}`; // Título modificado para incluir el edificio
-    this.modalData = []; // Vaciar datos previos antes de la carga
+    this.modalTitle = `${sensorName} - ${edificio}`; 
+    this.modalData = []; 
   
     try {
       const data = await this.sensorDataService.getSensorHistory(sensorKey, edificio).toPromise();

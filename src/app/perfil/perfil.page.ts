@@ -13,16 +13,27 @@ import { Router } from '@angular/router';
   imports: [IonicModule]
 })
 export class PerfilPage implements OnInit {
+  user: any = null; // Variable para almacenar los datos del usuario
 
   constructor(
     private darkModeService: DarkModeService,
     public translationService: TranslationService,
     private authService: AuthService,
-    private router:Router
-  ) { }
+    private router: Router
+  ) {}
 
-  ngOnInit() {
+  async ngOnInit() {
     this.darkModeService.loadTheme();
+    await this.loadUserData(); // Cargar datos del usuario
+  }
+
+  async loadUserData() {
+    try {
+      this.user = await this.authService.getUserData();
+      console.log('👤 Usuario cargado:', this.user);
+    } catch (error) {
+      console.error('❌ Error al obtener datos del usuario:', error);
+    }
   }
 
   async logout() {
@@ -33,5 +44,4 @@ export class PerfilPage implements OnInit {
       console.error('Error al cerrar sesión:', error);
     }
   }
-
 }

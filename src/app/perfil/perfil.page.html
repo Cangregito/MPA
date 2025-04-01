@@ -1,54 +1,30 @@
-
-
 <ion-content [fullscreen]="true">
   <div class="profile-header">
     <ion-avatar class="profile-picture">
       <img src="../../assets/icon/logoBMPA.png" alt="Foto de Perfil" />
     </ion-avatar>
-    <ion-button fill="outline" class="edit-btn">Editar Perfil</ion-button>
   </div>
 
   <div class="profile-info">
-    <h2 class="profile-name">Juan Pérez</h2>
+    <h2 class="profile-name">{{ user?.name || 'Usuario' }}</h2>
     
     <div class="info-item">
       <ion-icon name="mail-open-outline" class="info-icon"></ion-icon>
-      <p class="info-content">juan.perezcorreo.com</p>
-    </div>
-  
-    <div class="info-item">
-      <ion-icon name="location-outline" class="info-icon"></ion-icon>
-      <p class="info-content">Barcelona, España</p>
-    </div>
-  
-    <div class="info-item">
-      <ion-icon name="code-slash-outline" class="info-icon"></ion-icon>
-      <p class="info-content">Desarrollador Full Stack<br>
-      <small class="info-sub">Apasionado por la innovación tecnológica</small></p>
+      <p class="info-content">{{ user?.email || 'No disponible' }}</p>
     </div>
   </div>
 
-  <ion-list  class="profile-options">
-    <ion-item>
-      <ion-icon slot="start" name="key-outline"></ion-icon>
-      <ion-label>Seguridad</ion-label>
-    </ion-item>
+  <ion-list class="profile-options">
 
     <ion-item>
       <ion-icon slot="start" name="notifications-outline"></ion-icon>
       <ion-label>Notificaciones</ion-label>
       <ion-toggle slot="end" checked></ion-toggle>
     </ion-item>
-
-    <ion-item>
-      <ion-icon slot="start" name="document-text-outline"></ion-icon>
-      <ion-label>Historial de Actividad</ion-label>
-    </ion-item>
   </ion-list>
 
-  <ion-button expand="full" class="logout">
+  <ion-button expand="full" class="logout" (click)="logout()">
     <ion-icon slot="start" name="log-out-outline"></ion-icon>
     Cerrar Sesión
   </ion-button>
-
 </ion-content>

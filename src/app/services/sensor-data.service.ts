@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SensorDataService {
-  private apiUrl = 'http://10.3.8.200:3000';
+  private apiUrl = 'http://192.168.88.200:3000';
 
   constructor(private http: HttpClient) {}
 

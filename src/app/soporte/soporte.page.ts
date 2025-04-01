@@ -62,4 +62,14 @@ export class SoportePage implements OnInit {
   getTranslation(key: string): string {
     return this.translationService.getTranslation(key);
   }
+
+
+  enviarCorreo() {
+    const destinatario = 'mpa@outlock.com'; 
+    const asunto = 'Consulta sobre un problema';
+    const cuerpo = encodeURIComponent(this.mensaje);
+
+    const mailtoLink = `mailto:${destinatario}?subject=${encodeURIComponent(asunto)}&body=${cuerpo}`;
+    window.location.href = mailtoLink;
+  }
 }

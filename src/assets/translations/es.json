@@ -106,7 +106,7 @@
   "PROYECTO_UNIVERSITARIO": "Proyecto Universitario UTCJ",
   "SISTEMA_PROTOTIPO": "Sistema prototipo para detección temprana de emergencias mediante sensores IoT y energía renovable.",
   "SENSORES_TIPOS": "15 Tipos de Sensores",
-  "SENSORES_DESCRIPCION": "Fuego, Gas, Inundación y Ruido",
+  "SENSORES_DESCRIPCION": "Fuego, Gas, Vibración y Ruido",
   "ALIMENTACION_SOLAR": "Alimentación Solar",
   "ALIMENTACION_SOLAR_DESCRIPCION": "Reducción de costos operativos",
   "RESPUESTA_RAPIDA": "5 Min. Respuesta",
